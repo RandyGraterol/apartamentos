@@ -1,0 +1,110 @@
+body{
+	flex-direction: column;
+}
+.imgBox__img{
+	position: absolute;
+	right: 40px;
+	top: 10px;
+	width: 13%;
+}
+.imgBox__img .img{
+	width: 100%;
+}
+.liBox{
+	width: 65%;
+	height: 50px;
+	border-radius: 7px;
+	background: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 20px;
+	margin-top: 20px;
+}
+.liBox a{
+	font-size: 1.3em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: .3s;
+}
+.liBox a:hover{
+	padding: 0 10px;
+	background: black;
+	color: white;
+	border-radius: 4px;
+}
+.consultaBox{
+	width: 85%;
+	height: 75%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.consultaBox .imgBox{
+	width: 32%;
+	height: 100%;
+}
+.consultaBox .imgBox .img_1{
+	width: 100%;
+	background-size: cover;
+}
+.consultaBox .datoSaldoBox{
+	width: 67%;
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+}
+.consultaBox .datoSaldoBox .titulo,
+.consultaBox .datoSaldoBox .saldoBox{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 20px;
+	background: rgb(0, 39, 127,.8);
+	border-radius: 10px;
+	color: white;
+	font-family: sans-serif;
+}
+.consultaBox .datoSaldoBox .titulo{
+	font-size: 2.8em;
+}
+.consultaBox .datoSaldoBox .saldoBox span{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2.1em;
+	gap: 5px;
+}
+.consultaBox .datoSaldoBox .saldoBox span p{
+	font-weight: 700;
+}
+.consultaBox .datoSaldoBox .saldoBox span b{
+	font-weight: 500;
+}
+.consultaBox .datoSaldoBox .navBox{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 90px;
+}
+.consultaBox .datoSaldoBox .navBox button,
+.consultaBox .datoSaldoBox button{
+	padding: 13px;
+	background: rgb(0, 39, 127,.8);
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-weight: 700;
+	text-wrap: wrap;
+	width: 25%;
+	font-size: 1.1em;
+}
+.consultaBox .datoSaldoBox button{
+	width: auto;
+}

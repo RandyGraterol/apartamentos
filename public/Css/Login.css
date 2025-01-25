@@ -1,0 +1,73 @@
+
+.Login{
+	width: 30%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
+	
+}
+.Login img{
+	width: 45%;
+	height: 35%;
+}
+.Login h1{
+	color: white;
+	font-size: 1.5em;
+}
+.Login form{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+.Login form .inpuBox{
+	width: 100%;
+	height: 40px;
+}
+.Login form .inpuBox input{
+	width: 100%;
+	height: 100%;
+	padding: 0 10px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.Login form .inpuBox input[type="submit"]{
+	background: rgb(0, 0, 122);
+	color: white;
+	font-size: 1.2em;
+}
+.Login span{
+	width: 100%;
+	color: white;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.Login .inputRegister{
+	color: white;
+}
+.Login .inputRegister a{
+	text-decoration: none;
+	color: white;
+	transition: .2s;
+}
+.Login .inputRegister a:hover{
+	background: white;
+	color: black;
+	border-radius: 4px;
+}
+.imgBox{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 80%;
+}
+.imgBox .jovencitos{
+	width: 70%;
+	background-size: cover;
+}

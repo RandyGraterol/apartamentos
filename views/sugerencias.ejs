@@ -1,0 +1,43 @@
+	<%- include ('./template/header.ejs')%>
+	<title>Sugerencias</title>
+	<link rel="stylesheet" href="./Css/body.css">
+	<link rel="stylesheet" href="./Css/sugerencias.css">
+</head>
+<body>
+	<%- include ('./template/fondoImg.ejs')%>
+	<%- include ('./template/options.ejs')%>
+	<div class="section">
+		<div class="imgBox">
+			<img src="./Jpg/micasa.jpg" alt="">
+		</div>
+		<section>
+			<form action="">
+				<div class="inpotBox">
+					<label for="">NOMBRE</label>
+					<input type="text">
+				</div>
+				<div class="inpotBox">
+					<label for="">APARTAMENTO</label>
+					<input type="number">
+				</div>
+				<div class="inpotBox">
+					<label for="">TELEFONO</label>
+					<input type="tel">
+				</div>
+				<div class="inpotBox">
+					<label for="">MOTIVO DE LA SUGERENCIA</label>
+					<input type="text">
+				</div>
+			</form>
+			<div class="desciptionSugerencesBox">
+				<h2>DESCRIBE TU SUGERENCIA</h2>
+				<textarea></textarea>
+				<button>Enviar</button>
+			</div>
+		</section>
+	</div>
+	<div class="grupoWHS">
+		<p>Enlace de Grupo de Whatsapp "<a href="/ejecutivo_II">EJECUTIVO II</a>" </p>
+	</div>
+</body>
+</html>

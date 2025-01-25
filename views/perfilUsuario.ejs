@@ -1,0 +1,61 @@
+	<%-include('./template/header.ejs')%>
+	<title>Perfil de Usuarios</title>
+	<link rel="stylesheet" href="./Css/body.css">
+	<link rel="stylesheet" href="./Css/perfilUsuario.css">
+</head>
+<body>
+	<%-include('./template/fondoImg.ejs')%>
+	<%-include('./template/options.ejs')%>
+	<section class="perfilUsuario">
+		<div class="usuario">
+			<div class="userimgBox">
+				<img src="https://static-00.iconduck.com/assets.00/user-icon-2046x2048-9pwm22pp.png" alt="">
+			</div>
+			<div class="submitimgBox">
+				<label for="file">
+					<i class="fa-solid fa-angle-up"></i>
+					Subir Imagen
+				</label>
+				<input style="display: none;" id="file" type="file"> 
+			</div>
+		</div>
+		<div class="datosUsuarioBox">
+			<h1>Datos Personales</h1>
+			<div class="inputBox">
+				<span><i class="fa-solid fa-user"></i>User:</span>
+				<p>user</p>
+				<i class="fa-solid fa-check"></i>
+			</div>
+			<div class="inputBox seg">
+				<i class="fa-solid fa-envelope"></i>
+				<p>user</p>
+				<i class="fa-solid fa-check"></i>
+			</div>
+			<div class="inputBox seg">
+				<i class="fa-solid fa-mobile"></i>
+				<p>user</p>
+				<i class="fa-solid fa-check"></i>
+			</div>
+			<div class="inputBox seg">
+				<i class="fa-solid fa-lock"></i>
+				<p>user</p>
+				<i class="fa-solid fa-check"></i>
+			</div>
+		</div>
+		<div class="infonrmacionBox">
+			<div class="informacio">
+				<h2>!Importante¡</h2>
+				<span>Si tienes algun inconveniente no dude en comunitarte con el administrador!</span>
+				<p>Condominio Ejecutivo II</p>
+				<button>Guardar Datos</button>
+			</div>
+			<div class="linkGrupoBox"><a href="#">Link Grupo</a></div>
+		</div>
+	</section>
+	<div class="Sugerencias">
+		<p>Tienes Alguna Sugerencia? ve 
+			<a href="/sugerencias">BUSON DE SUGERENCIAS</a>
+		</p>
+	</div>
+</body>
+</html>

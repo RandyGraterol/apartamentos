@@ -1,0 +1,106 @@
+<%- include ('./template/header.ejs')%>
+	<link rel="stylesheet" href="./Css/body.css">
+	<title>Bienvenid@</title>
+	<link rel="stylesheet" href="./Css/bienvenidos.css">
+</head>
+
+<body>
+	<%- include ('./template/fondoImg.ejs')%>
+		<div class="imgBox">
+			<img src="./Png/edificionWhite.png" alt="">
+		</div>
+
+		<h1 class="bienvenidosH1">Bienbenid@</h1>
+
+	<%-include('./template/options.ejs')%>
+
+	<div class="banerOption">
+		<div class="optionBox">
+			<div class="imgBoxOption">
+				<img src="./Png/edificioBlack.png" alt="">
+			</div>
+
+			<div class="descriptioBox">
+				<p class="titulo">Gestion de Pagos</p>
+				<span class="descriptio">
+					<p>Visualizacion de Facturas.</p>
+					<p>-Ultima factura y y actual en PDF.</p>
+					<p>-Deuda actual y mendiente</p>
+					<p>Anexzar Pagos</p>
+					<p>-Subir Comprobante (PDF o IMG) o ingresar los ultimos 4 digitos.</p>
+					<p>-Campo para notas sobre el pago.</p>
+					<p>-Boton para enviar Comprbante.</p>
+				</span>
+			</div>
+
+			<div class="submitButtom">
+				<a href="/gestionPagos">Ir</a>
+			</div>
+
+		</div>
+
+		<div class="optionBox">
+			<div class="imgBoxOption">
+				<img src="https://w7.pngwing.com/pngs/864/574/png-transparent-computer-icons-computer-configuration-a-new-user-miscellaneous-logo-monochrome.png" alt="">
+			</div>
+
+			<div class="descriptioBox">
+				<p class="titulo">Perfil de Usuario</p>
+				<span class="descriptio">
+					<p>-Visualizacion y edicion del perfil personal</p>
+					<p>-Historial de pagos realizados y estado actual</p>
+				</span>
+			</div>
+
+			<div class="submitButtom">
+				<a href="/perfilUsuario">Ir</a>
+			</div>
+
+		</div>
+
+		<div class="optionBox">
+			<div class="imgBoxOption">
+				<img src="https://w7.pngwing.com/pngs/234/144/png-transparent-letter-box-email-email-miscellaneous-angle-white.png" alt="">
+			</div>
+
+			<div class="descriptioBox">
+				<p class="titulo">Sugerencias</p>
+				<span class="descriptio">
+					<p>Formulario para  presentar quejas:</p>
+					<p>-Campo para descripcion detallada.</p>
+					<p>Opcion para adjuntar Archivos Relevantes.</p>
+					<p>-Formulario para sugerencias.</p>
+					<p>Campo libre para Sugerencias.</p>
+					<p>Historial de quejas y sugerencias enviadas.</p>
+				</span>
+			</div>
+
+			<div class="submitButtom">
+				<a href="/sugerencias">Ir</a>
+			</div>
+
+		</div>
+
+		<div class="optionBox">
+			<div class="imgBoxOption">
+				<img src="https://png.pngtree.com/png-vector/20190721/ourmid/pngtree-question-mark--icon-in-trendy-style-isolated-background-png-image_1566849.jpg" alt="">
+			</div>
+
+			<div class="descriptioBox">
+				<p class="titulo">Soporte / Ayuda</p>
+				<span class="descriptio">
+					<p>-Seccion de preguntas frecuentes.</p>
+					<p>-Informacion de como contactar el Administrador</p>
+				</span>
+			</div>
+
+			<div class="submitButtom">
+				<a href="/ejecutivo_II">Ir</a>
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

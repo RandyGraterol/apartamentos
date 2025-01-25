@@ -1,0 +1,113 @@
+body{
+	flex-direction: column;
+	gap: 10px;
+}
+.imgBox{
+	position: absolute;
+	right: 40px;
+	top: 10px;
+	width: 13%;
+}
+.imgBox img{
+	width: 100%;
+}
+.bienvenidosH1{
+	color: white;
+	font-size: 4.8em;
+}
+.liBox{
+	width: 75%;
+	height: 45px;
+	border-radius: 7px;
+	background: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 20px;
+}
+.liBox a{
+	font-size: 1.3em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: .3s;
+}
+.liBox a:hover{
+	padding: 0 10px;
+	background: black;
+	color: white;
+	border-radius: 4px;
+}
+.banerOption{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 20px;
+	overflow-x: scroll;
+}
+.banerOption .optionBox{
+	min-width: 100px;
+	width: 100%;
+	max-width: 280px;
+	height: 550px;
+	border: 1px solid;
+	border-radius: 1200px 1200px 1200px 1200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	background: white;
+}
+.banerOption .optionBox .descriptioBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: purple;
+}
+.banerOption .optionBox .imgBoxOption{
+	width: 90%;
+	height: 45%;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(229, 230, 235);
+}
+.banerOption .optionBox .imgBoxOption img{
+	width: 90%;
+	height: 90%;
+	background-size: cover;
+	border-radius: 50%;
+	background-size: cover;	
+}
+.banerOption .optionBox .descriptioBox .titulo{
+	font-size: 1.5em;
+}
+.banerOption .optionBox .descriptioBox .descriptio{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	font-size: .9em;
+}
+.banerOption .optionBox .submitButtom{
+	width: 35%;
+	padding: 5px;
+	background: purple;
+	border-radius: 15px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 8px;
+	cursor: pointer;
+}
+.banerOption .optionBox .submitButtom:hover{
+	
+}
+.banerOption .optionBox .submitButtom a{
+	text-decoration: none;
+	color: white;
+}

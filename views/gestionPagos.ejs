@@ -1,0 +1,43 @@
+	<%-include('./template/header.ejs')%>
+	<title>Gestion de Usuarios</title>
+	<link rel="stylesheet" href="./Css/body.css">
+	<link rel="stylesheet" href="./Css/gestionPagos.css">
+</head>
+<body>
+	<%-include('./template/fondoImg.ejs')%>
+	<section class="imgBox__img">
+		<img class="img" src="./Png/edificionWhite.png" alt="">
+	</section>
+	<%-include('./template/options.ejs')%>
+	<section class="consultaBox">
+		<div class="imgBox">
+			<img class="img_1" src="./Png/viejitos.png" alt="">
+		</div>
+		<div class="datoSaldoBox">
+
+			<h1 class="titulo">Pagos</h1>
+
+			<div class="saldoBox">
+				<span>
+					<p>Pendiente</p>:
+					<b>10,44Bs</b>
+				</span>
+				<span>
+					<p>Actual</p>:
+					<b>50,44Bs</b>
+				</span>
+				<span>
+					<p>Total</p>:
+					<b>660,44Bs</b>
+				</span>
+			</div>
+
+			<div class="navBox">
+				<button>Factura Siguiente</button>
+				<button>Factura Anterior</button>
+			</div>
+			<button>Pagar Factura</button>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,157 @@
+body{
+	flex-direction: column;
+	gap: 20px;
+	overflow: hidden;
+}
+.liBox{
+	width: 75%;
+	height: 45px;
+	border-radius: 7px;
+	background: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 20px;
+	transform: translateY(30PX);
+}
+.liBox a{
+	font-size: 1.3em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: .3s;
+	font-family: sans-serif;
+}
+.liBox a:hover{
+	padding: 0 10px;
+	background: black;
+	color: white;
+	border-radius: 4px;
+}
+.section{
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	width: 100%;
+	height: 80%;
+	padding: 10px;
+}
+.section .imgBox{
+	width: 50%;
+	height: 9	0%;
+	border-radius: 50%;
+	background: white;
+	padding: 0 10px 0 0;
+	transform: translateX(-200px) translateY(70px);
+}
+.section .imgBox img{
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+	background-size:cover ;
+}
+.section section{
+	width: 55%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(0, 39, 127, .8);
+	transform: translateX(-150px);
+	padding:20px;
+	border-radius: 5px;
+}
+.section section form{
+	width: 70%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	color: white;
+}
+.section section form .inpotBox{
+	display: flex;
+	flex-direction: column;
+	width: 95%;
+	gap: 10px;
+}
+.section section form .inpotBox label{
+	font-weight: 700;
+	font-size: 1.5em;
+	font-family: sans-serif;
+	padding: 0 20px;
+}
+.section section form .inpotBox input{
+	width: 100%;
+	height: 45px;
+	background: white;
+	padding: 0 10px;
+	outline: none;
+	border-radius:15px;
+	padding: 0 20px;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+.section section .desciptionSugerencesBox{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
+	color: white;
+	gap: 10px;
+}
+.section section .desciptionSugerencesBox h2{
+	font-size: 1.2em;
+	font-family: sans-serif;
+}
+.section section .desciptionSugerencesBox textarea{
+	width: 90%;
+	height: 270px;
+	border-radius: 10px;
+	color: blue;
+	padding: 10px;
+	font-size: 1.2em;
+	outline: none;
+}
+.section section .desciptionSugerencesBox button{
+	width: 40%;
+	padding: 10px;
+	background: white;
+	color: blue;
+	font-weight: 700;
+	font-size: 1.2em;
+	border-radius: 15px;
+	transition: .2s;
+}
+.section section .desciptionSugerencesBox button:hover{
+	scale: 1.1;
+	background: black;
+	color: white;
+}
+.grupoWHS{
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(0, 39, 127, .9);
+	font-size: 1.1em;
+	color: white;
+	font-family: sans-serif;
+	transform: translateY(-40PX);
+}
+.grupoWHS a{
+	text-decoration: none;
+	color: white;
+	transition: .3s;
+	font-weight: 700;
+}
+.grupoWHS a:hover{
+	background: white;
+	color: black;
+	padding: 5px;
+	border-radius: 10px;
+}

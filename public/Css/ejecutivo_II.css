@@ -1,0 +1,89 @@
+body{
+	flex-direction: column;
+	gap: 20px;
+}
+.liBox{
+	width: 75%;
+	height: 45px;
+	border-radius: 7px;
+	background: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 20px;
+}
+.liBox a{
+	font-size: 1.3em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: .3s;
+}
+.liBox a:hover{
+	padding: 0 10px;
+	background: black;
+	color: white;
+	border-radius: 4px;
+}
+section{
+	width: 80%;
+	height: 75%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(0, 39, 127, .8);
+	border-radius: 10px;
+}
+section .imgBox{
+	position: relative;
+	width: 50%;
+	height: 500px	;
+}
+section .imgBox img{
+	position: absolute;
+	height: 100%;
+}
+section .banner{
+	width: 40%;
+	transform: translateX(-80px);
+}
+section .banner .detalles{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	color: white;
+}
+section .banner .detalles h1{
+	font-size: 3.6em;
+	font-family: sans-serif;
+	text-align: center;
+}
+section .banner .detalles p{
+	display: flex;
+	justify-content: end;
+	font-family: sans-serif;
+	font-size: 1.3em;
+}
+section .banner .detalles .button{
+	padding: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+section .banner .detalles .button button{
+	padding:12px 17px ;
+	background: transparent;
+	color: white;
+	border-radius: 5px;
+	font-weight: 700;
+	font-size: 1.2em;
+}
+section .banner .puntos{
+	width: 310px;
+	height: 210px;
+	overflow: hidden;
+	font-weight: 1000;
+	font-size: 1.8em;
+	color: yellow;
+}

@@ -1,0 +1,202 @@
+body{
+	flex-direction: column;
+	gap: 20px;
+}
+.liBox{
+	width: 75%;
+	height: 45px;
+	border-radius: 7px;
+	background: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 20px;
+}
+.liBox a{
+	font-size: 1.3em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: .3s;
+}
+.liBox a:hover{
+	padding: 0 10px;
+	background: black;
+	color: white;
+	border-radius: 4px;
+}
+.perfilUsuario{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+}
+.perfilUsuario .usuario{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	gap: 10px;
+}
+.perfilUsuario .userimgBox,
+.perfilUsuario .submitimgBox,
+.perfilUsuario .datosUsuarioBox,
+.perfilUsuario .datosUsuarioBox .linkGrupoBox,
+.perfilUsuario .informacio{
+	padding: 10px;	
+	background: rgb(0, 39, 127, .9);
+	border-radius: 5px;
+	color: white;
+}
+.perfilUsuario .submitimgBox,
+.perfilUsuario .userimgBox{
+	width: 100%;
+}
+.perfilUsuario .userimgBox{
+	height: 300px;
+}
+.perfilUsuario .userimgBox img{
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+.perfilUsuario .submitimgBox{
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.perfilUsuario .submitimgBox label{
+	font-size: 1.8em;
+	font-weight: 700;
+	font-family: sans-serif;
+}
+.perfilUsuario .datosUsuarioBox{
+	min-width: 350px;
+	width: 100%;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.perfilUsuario .datosUsuarioBox h1{
+	text-align: center;
+	font-size: 2.7em;
+	font-family: sans-serif;
+
+}
+.perfilUsuario .datosUsuarioBox .inputBox{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 55px;
+	background: rgb(135, 198, 236);
+	font-size: 1.3em;
+}
+.perfilUsuario .datosUsuarioBox .inputBox .fa-check,
+.perfilUsuario .datosUsuarioBox .inputBox span{
+	height: 100%;
+	background: white;
+	color: rgb(135, 198, 236);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	padding: 0 10px;
+}
+.perfilUsuario .datosUsuarioBox .inputBox i{
+	height: 100%;
+	padding: 0 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.3em;
+}
+.perfilUsuario .datosUsuarioBox .inputBox .fa-check{
+	font-size: 1.7em;
+}
+.perfilUsuario .datosUsuarioBox .inputBox p{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 0 15px;
+}
+.perfilUsuario .infonrmacionBox{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.perfilUsuario .infonrmacionBox,
+.perfilUsuario .infonrmacionBox .informacio{
+	padding: 10px;
+	min-width: 200px;
+	width: 100%;
+	max-width: 270px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: sans-serif;
+	gap: 10px;
+	font-size: 1.1em;
+}
+.perfilUsuario .infonrmacionBox{
+	gap: 15px;
+}
+.perfilUsuario .infonrmacionBox .informacio span{
+	font-size: .9em;
+}
+.perfilUsuario .infonrmacionBox .informacio p{
+	font-size: .8em;
+}
+.perfilUsuario .infonrmacionBox .linkGrupoBox{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 65px;
+	background: rgb(0, 39, 127, .9);
+
+}
+.perfilUsuario .infonrmacionBox .informacio button,
+.perfilUsuario .infonrmacionBox .linkGrupoBox a{
+	padding: 10px;
+	font-size: 1.2em;
+	background: transparent;
+	color: white;
+	font-weight: 700;
+	border: 3px solid white;
+}
+.perfilUsuario .infonrmacionBox .linkGrupoBox a{
+	width: 80%;
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.Sugerencias{
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(0, 39, 127, .9);
+	font-size: 1.1em;
+	color: white;
+	font-family: sans-serif;
+}
+.Sugerencias a{
+	text-decoration: none;
+	color: white;
+	transition: .3s;
+	font-weight: 700;
+}
+.Sugerencias a:hover{
+	background: white;
+	color: black;
+	padding: 5px;
+	border-radius: 10px;
+}
