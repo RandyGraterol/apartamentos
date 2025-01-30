@@ -1,0 +1,88 @@
+/* Estilos generales */
+body {
+    background-color: #f8f9fa; /* Fondo suave */
+    font-family: Arial, sans-serif; /* Fuente legible */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px; /* Ancho máximo del contenedor */
+    margin: 50px auto; /* Centrar el contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo para el título */
+h1 {
+    text-align: center; /* Centrar el título */
+    color: #007bff; /* Color azul */
+}
+
+/* Estilo para el formulario */
+.formulario {
+    display: flex; /* Usar flexbox para alinear elementos */
+    flex-direction: column; /* Colocar elementos en columna */
+    padding:2rem;
+}
+
+/* Estilo para los campos de entrada */
+.inputD {
+    margin-bottom: 15px; /* Espaciado entre campos */
+}
+
+label {
+    display: block; /* Hacer que las etiquetas ocupen toda la línea */
+    margin-bottom: 5px; /* Espaciado debajo de la etiqueta */
+    color: #333; /* Color de texto oscuro */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="number"] {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ced4da; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+}
+
+input[type="text"]:focus {
+    border-color: #007bff; /* Cambiar el color del borde al enfocar */
+    outline: none; /* Quitar el contorno predeterminado */
+}
+
+button {
+    padding: 10px; /* Espaciado interno */
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px; /* Espaciado reducido en pantallas pequeñas */
+        padding: 15px; /* Espaciado interno reducido */
+    }
+    h1{
+        font-size: 24px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+
+    button {
+        font-size: 14px; /* Tamaño de fuente más pequeño para el botón */
+    }
+}

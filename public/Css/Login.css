@@ -1,4 +1,7 @@
-
+h3{
+	text-align: center;
+	color:whitesmoke;
+}
 .Login{
 	width: 30%;
 	height: 100vh;
@@ -6,8 +9,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	gap: 20px;
-	
+	gap: 20px;	
 }
 .Login img{
 	width: 45%;

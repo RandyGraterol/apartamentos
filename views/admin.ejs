@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboar</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/admin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    
+    <body>
+        <header class="bg-dark text-white text-center py-3">
+            <h1>Panel de Administrador</h1>
+        </header>
+    
+        <div class="container-fluid">
+            <div class="row">
+
+               <%-include('nav')-%>
+    
+                <main class="col-md-10 p-4">
+                   <%- include('dashboarGeneral') -%>
+    
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/panel.js"></script>
+    </body>
+    </html>
+

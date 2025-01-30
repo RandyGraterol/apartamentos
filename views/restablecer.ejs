@@ -1,0 +1,80 @@
+	<%- include ('./template/header.ejs')%>
+	<title>Login</title>
+	<link rel="stylesheet" href="./Css/body.css">
+	<link rel="stylesheet" href="./Css/Login.css">
+	<script src="/Js/alertConfig.js"></script>
+	<style>
+		.styles{
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap:1rem;
+		}.styles input,.styles h1,.styles h3,.styles div{
+			width:100%;
+			text-align: center;
+		}.styles input{
+			padding:1rem 2rem;
+		}
+	</style>
+</head>
+<body>
+	
+	<%- include ('./template/fondoImg.ejs')%>
+	<section class="Login">
+		<img src="./Png/edificionWhite.png" alt="">
+
+<!------------------------------------------------------------------------->
+<form id="restablecer" class="styles">
+	<h1>Cambiar Contraseña</h1>
+	<h3 class="insertar">Nueva contraseña papu</h3>
+
+	<input id='password' type="password" placeholder="Ingresa tu password">
+
+	<input id='password2' type="password" placeholder="Confirma tu password">
+
+
+	<div class="inpuBox">
+		<input type="submit" value="Cambiar">
+	</div>
+</form>
+<!-------------------------------------------------------------------->	
+<div class="inputRegister">
+	<p><a href="/">Login</a></p>
+
+</div>
+</section>
+<section class="imgBox">
+	<img class="jovencitos" src="./Png/jocencitos.png" alt="">
+</section>
+<script>
+	const rr = document.querySelector('#restablecer');
+	rr.addEventListener('submit',e=>{
+		e.preventDefault();
+		let password = document.getElementById('password').value;
+		let password2 = document.getElementById('password2').value;
+		if(password !== password2){
+			Swal.fire('Las contraseñas no coinciden');
+		}else{
+			fetch('/restablecerPasswordPost',{
+				method:'POST',
+				headers:{
+					"Content-Type":"application/json"
+				},
+				body:JSON.stringify({password})
+			})
+			.then(res=>res.json())
+			.then(res=>{
+				if(res.status){
+					Swal.fire('Contraseña cambiada con exito');
+				}else{
+                   Swal.fire('No se puedo completar el proceso, intente de nuevo');
+				}
+			})
+
+		}
+
+	})
+</script>
+</body>
+</html>
