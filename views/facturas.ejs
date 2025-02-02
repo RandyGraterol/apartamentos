@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Panel de Administrador</h1>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+          <%-include('nav')-%>
+          <main class="col-md-10 p-4">
+            <%- include('dashboarGeneral') -%>
+
+            <h2>Listado de Facturas</h2>
+            <div class="containerTable">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>usuarioId</th>
+                            <th>pagoId</th>
+                            <th>apartamentoId</th>
+                            <th>fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuarioTableBody">
+                        <!-- Los usuarios se agregarán dinámicamente aquí -->
+                        <% factUras.forEach(factura=>{ %>
+                        <tr>
+                           <td><%=factura.id%></td>
+                           <td><%=factura.usuarioId%></td>
+                           <td><%=factura.pagoId%></td>
+                           <td><%=factura.apartamentoId%></td>
+                           <td><%=factura.createdAt%></td>
+                            <td>
+                               <a href="/updateUsuarioGet/<%=factura.id%>/facturas"><img class="imgOpcion" src="/icon/arrow.png" alt=""></a>
+
+                               <a href="/deleteUsuario/<%=factura.id%>/facturas">
+                                <img class="imgOpcion" src="/icon/trash.png" alt=""></a>
+
+                                <a href="/descargarPDF/<%=factura.id%>">
+                                <img class="imgOpcion" src="/icon/document.png" alt=""></a>
+
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Formulario para Agregar Usuario -->
+    <h2>Agregar Factura</h2>
+
+    <div class="card mb-3" id="reporte">
+        <form action="/crearFactura" method="POST">
+
+            <div class="inputD">
+                <label for="usuarioId">usuarioId</label>
+                <select name="usuarioId" id="usuarioId">
+                    <% users.forEach(user=>{ %>
+                    <option value="<%=user.id%>"><%=user.email%></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div class="inputD">
+                <label for="pagoId">pagoId</label>
+                <select name="pagoId" id="pagoId">
+                    <% paGos.forEach(pago=>{ %>
+                    <option value="<%=pago.id%>"><%=pago.codigo%></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div class="inputD">
+                <label for="apartamentoId">apartamentoId</label>
+                <select name="apartamentoId" id="apartamentoId">
+                    <% apartamentOs.forEach(apartamento=>{ %>
+                    <option value="<%=apartamento.id%>"><%=apartamento.apartamento%></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <button class="btn btn-primary">Agregar Factura</button>
+        </form>
+    </div>
+</main>
+</div>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+<script src="js/panel.js"></script>
+<script src="js/usuarios.js"></script>
+</body>
+</html>

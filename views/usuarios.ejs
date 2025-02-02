@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TransiTrack - Sistema de Control de Rutas</title>
+    <title>Sistema de Control</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -24,12 +24,12 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Teléfono</th>
                         <th>Contraseña</th>
                         <th>Perfil</th>
-                        <th>Apartamento</th>
                         <th>D. Actual</th>
                         <th>D. Pendiente</th>
                         <th>Acciones</th>
@@ -39,19 +39,19 @@
                     <!-- Los usuarios se agregarán dinámicamente aquí -->
                     <% users.forEach(user=>{ %>
                     <tr>
+                        <td><%=user.id%></td>
                         <td><%=user.nombre%></td>
                         <td><%=user.email%></td>
                         <td><%=user.telefono%></td>
 
                         <td><%=user.password%></td>
                         <td><%=user.imgPerfil%></td>
-                        <td><%=user.apartamentoId%></td>
                         <td><%=user.deudaActual%></td>
                         <td><%=user.deudaPendiente%></td>
                         <td>
-                             <a href="/updateUsuarioGet/<%=user.id%>"><img class="imgOpcion" src="/icon/arrow.png" alt=""></a>
+                             <a href="/updateUsuarioGet/<%=user.id%>/usuarios"><img class="imgOpcion" src="/icon/arrow.png" alt=""></a>
 
-                              <a href="/deleteUsuario/<%=user.id%>">
+                              <a href="/deleteUsuario/<%=user.id%>/usuarios">
                                 <img class="imgOpcion" src="/icon/trash.png" alt=""></a>
                         </td>
                     </tr>
@@ -86,14 +86,6 @@
             <div class="inputD">
                 <label for="imgPerfil">Imagen de Perfil</label>
                 <input type="file" id="imgPerfil" name="imgPerfil" placeholder="/img/default.png" required>
-            </div>
-            <div class="inputD">
-                <label>Apartamento asignado</label>
-                <select name="apartamentoId" id="apartamentoId" required>
-                    <% data.forEach(apartamento=>{ %>
-                    <option value="<%=apartamento.id%>"><%=apartamento.apartamento%></option>
-                    <% }); %>
-                </select>
             </div>
             <div class="inputD">
                 <label for="deudaActual">Deuda Actual</label>

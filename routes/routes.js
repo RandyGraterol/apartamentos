@@ -1,31 +1,46 @@
 const express = require('express');
 const upload = require('../utils/multer.js');
-const { index,ejecutivo_II,viewAdmin,gestion_de_pagos,bienvenidos,perfilUsuario,sugerencias,loginPost,crearGet,crearPost,recovery,recoveryPost,restablecerPasswordPost,dashboar,usUarios,restablecer,updateUsuarioGet,updateUsuarioPost,deleteUsuario} = require('../controllers/controllers.js');
+
+const verify = require('../middleware/verify.js');
+
+const { index,ejecutivo_II,viewAdmin,gestion_de_pagos,bienvenidos,perfilUsuario,sugerencias,loginPost,crearGet,crearPost,recovery,recoveryPost,restablecerPasswordPost,dashboar,usUarios,restablecer,updateGet,updatePost,deleteUsuario,adminPagos,aPartamentos,crearApartamentoPost,crearPagoPost,repor,crearReporte,fActuras,crearFactura,descargarPDF,pagar} = require('../controllers/controllers.js');
 
 const routes = express.Router();
 
 // Rutas
 routes.get('/', index);
-routes.get('/bienvenidos', bienvenidos);
-routes.get('/gestionPagos', gestion_de_pagos);
-routes.get('/perfilUsuario', perfilUsuario);
-routes.get('/sugerencias', sugerencias);
-routes.get('/viewAdmin', viewAdmin);
-routes.get('/ejecutivo_II', ejecutivo_II);
-routes.get('/recovery',recovery);
-routes.get('/dashboar',dashboar);
-routes.get('/usuarios',usUarios);
-routes.get('/restablecer',restablecer);
-routes.get('/updateUsuarioGet/:id',updateUsuarioGet);
+routes.get('/bienvenidos',verify,bienvenidos);
+routes.get('/gestionPagos',verify, gestion_de_pagos);
+routes.get('/perfilUsuario',verify, perfilUsuario);
+routes.get('/sugerencias',verify, sugerencias);
+routes.get('/viewAdmin',verify, viewAdmin);
+routes.get('/ejecutivo_II',verify, ejecutivo_II);
+routes.get('/recovery',verify,recovery);
+routes.get('/dashboar',verify,dashboar);
+routes.get('/usuarios',verify,usUarios);
+routes.get('/apartamentos',verify,aPartamentos);
+routes.get('/adminPagos',verify,adminPagos);
+routes.get('/reportes',verify,repor);
+routes.get('/facturas',verify,fActuras);
+routes.get('/restablecer',verify,restablecer);
+routes.get('/updateUsuarioGet/:id/:tabla',verify,updateGet);
+routes.get('/descargarPDF/:id',verify,descargarPDF);
+routes.get('/pagar',verify,pagar);
 //////////////////////////////////////////////////////////
 //metodo post
 routes.post('/loginPost',loginPost);
+
 routes.post('/crearUsuarioPost',upload.single('imgPerfil'),crearPost);
+routes.post('/crearApartamentoPost',crearApartamentoPost);
+routes.post('/crearPagoPost/:id',upload.single('comprobante'),crearPagoPost);
+routes.post('/crearReporte/:role',crearReporte);
+routes.post('/crearFactura',crearFactura);
+
 routes.post('/recoveryPost',recoveryPost);
 routes.post('/restablecerPasswordPost',restablecerPasswordPost);
-routes.post('/updateUsuarioPost/:id',upload.single('imgPerfil'),updateUsuarioPost);
+routes.post('/updatePost/:id/:tabla',upload.single('comprobante'),updatePost);
 /////////////////////////////////////////////////////////
 //borrar
-routes.get('/deleteUsuario/:id',deleteUsuario);
+routes.get('/deleteUsuario/:id/:tabla',deleteUsuario);
 
 module.exports = routes;

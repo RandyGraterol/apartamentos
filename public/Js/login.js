@@ -15,10 +15,15 @@ login.addEventListener('submit',e=>{
 	.then(res=>res.json())
 	.then(res=>{
 		if(res.status){
-			Swal.fire('¡Bienvenido al Sistema!');
+			Swal.fire(`¡Bienvenido al Sistema ${res.role}!`);
 			setTimeout(()=>{
-            window.location.href='/dashboar';
-			},3000);
+			if(res.role !== "admin"){
+				window.location.href='/bienvenidos';
+			}else{
+			    window.location.href='/dashboar';	
+			}
+            
+			},1000);
 		}else if(!res.status){
          Swal.fire('Correo o contraseña incorrectos , vuelve a intentar');
 		}else{

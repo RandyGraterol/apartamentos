@@ -9,44 +9,152 @@
 </head>
 <body>
     <div class="container">
-        <h1>Actualizar registro</h1>
-        <form action="/updateUsuarioPost/<%=users.id%>" method="POST" class="formulario" enctype="multipart/form-data">
+        <h1>Actualizar <%=tabla%></h1>
+        <form action="/updatePost/<%=data.id%>/<%=tabla%>" method="POST" class="formulario" enctype="multipart/form-data">
+            <% if(tabla == "usuarios"){ %>
             <div class="inputD">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required value='<%=users.nombre%>'>
+                <input type="text" id="nombre" name="nombre" required value='<%=data.nombre%>'>
             </div>
             <div class="inputD">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required value='<%=users.email%>'>
+                <input type="email" id="email" name="email" required value='<%=data.email%>'>
             </div>
             <div class="inputD">
                 <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required value='<%=users.telefono%>'>
+                <input type="tel" id="telefono" name="telefono" required value='<%=data.telefono%>'>
             </div>
             <div class="inputD">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required value='<%=users.password%>'>
+                <input type="password" id="password" name="password" required value='<%=data.password%>'>
             </div>
             <div class="inputD">
                 <label for="imgPerfil">Imagen de Perfil</label>
                 <input type="file" id="imgPerfil" name="imgPerfil" placeholder="/img/default.png" required>
             </div>
             <div class="inputD">
-                <label>Apartamento asignado</label>
-                <select name="apartamentoId" id="apartamentoId" required>
-                    <% data.forEach(apartamento=>{ %>
+                <label for="deudaActual">Deuda Actual</label>
+                <input type="number" id="deudaActual" name="deudaActual" value='<%=data.deudaActual%>'>
+            </div>
+            <div class="inputD">
+                <label for="deudaPendiente">Deuda Pendiente</label>
+                <input type="number" id="deudaPendiente" name="deudaPendiente" value='<%=data.deudaPendiente%>'>
+            </div>
+            <% }else if(tabla == 'apartamentos'){ %>
+             <div class="inputD">
+                <label for="piso">Piso</label>
+                <input type="text" id="piso" name="piso" required value='<%=data.piso%>'>
+            </div>
+            <div class="inputD">
+                <label for="edificio"><E>Edificio</E></label>
+                <input type="text" id="edificio" name="edificio" required value='<%=data.edificio%>'>
+            </div>
+            <div class="inputD">
+                <label for="apartamento">Apartamento</label>
+                <input type="text" id="apartamento" name="apartamento" required value='<%=data.apartamento%>'>
+            </div>
+             <div class="inputD">
+                <label>Usuario</label>
+                <select name="usuarioId" id="usuarioId">
+                  <% usuarios.forEach(user=>{ %>
+                   <option value="<%=user.id%>"><%=user.email%></option>
+                  <% }); %>
+                </select>
+            </div>
+
+            <div class="inputD">
+                <label for="status">Status</label>
+                <select name="status" id='status'>
+                    <option value="true">Disponible</option>
+                    <option value="false">Ocupado</option>
+                </select>
+            </div>
+            <% }else if(tabla == 'adminPagos'){ %>
+             <div class="inputD">
+                <label for="codigo">codigo</label>
+                <input type="text" id="codigo" name="codigo" value="<%=data.codigo%>">
+            </div>
+
+            <div class="inputD">
+                <label for="comentario">Comentario</label>
+                <input type="text" id="comentario" name="comentario" required value="<%=data.comentario%>">
+            </div>
+
+            <div class="inputD">
+                <label for="comprobante">comprobante</label>
+                <input type="file" id="comprobante" name="comprobante">
+            </div>
+
+            <div class="inputD">
+                <label for="usuarioId">Identificador de usuario</label>
+                <select name="usuarioId" id="usuarioId">
+                    <% usuarios.forEach(user=>{ %>
+                     <option value="<%=user.id%>"><%=user.email%></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div>
+                <label for="monto">Monto</label>
+                <input type="number" name="monto" id="monto" value="<%=data.monto%>"> 
+            </div>
+            <% }else if(tabla == 'reportes'){ %>
+             <div class="inputD">
+                <label for="nombre">nombre</label>
+                <input type="text" id="nombre" name="nombre" value="<%=data.nombre%>">
+            </div>
+
+            <div class="inputD">
+                <label for="apartamentoId">apartamentoId</label>
+                <select name="apartamentoId" id="apartamentoId">
+                    <% apartacho.forEach(apartamento=>{ %>
                     <option value="<%=apartamento.id%>"><%=apartamento.apartamento%></option>
                     <% }); %>
                 </select>
             </div>
+
             <div class="inputD">
-                <label for="deudaActual">Deuda Actual</label>
-                <input type="number" id="deudaActual" name="deudaActual" value='<%=users.deudaActual%>'>
+                <label for="telefono">telefono</label>
+                <input type="number" id="telefono" name="telefono" value="<%=data.telefono%>">
             </div>
+
+            <div>
+                <label for="motivos">motivos</label>
+                <input type="text" placeholder="Ingrese Motivo" name="motivos" id="motivos" value="<%=data.motivos%>"> 
+            </div>
+
+            <div>
+                <label for="descripcion">descripcion</label>
+                <input type="text" placeholder="Ingrese descripcion" name="descripcion" id="descripcion" value="<%=data.descripcion%>"> 
+            </div>
+            <% }else{ %>
             <div class="inputD">
-                <label for="deudaPendiente">Deuda Pendiente</label>
-                <input type="number" id="deudaPendiente" name="deudaPendiente" value='<%=users.deudaPendiente%>'>
+                <label for="usuarioId">usuarioId</label>
+                <select name="usuarioId" id="usuarioId">
+                    <% usuarios.forEach(user=>{ %>
+                    <option value="<%=user.id%>"><%=user.email%></option>
+                    <% }); %>
+                </select>
             </div>
+
+            <div class="inputD">
+                <label for="pagoId">pagoId</label>
+                <select name="pagoId" id="pagoId">
+                    <% paGos.forEach(pago=>{ %>
+                    <option value="<%=pago.id%>"><%=pago.codigo%></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div class="inputD">
+                <label for="apartamentoId">apartamentoId</label>
+                <select name="apartamentoId" id="apartamentoId">
+                    <% apartacho.forEach(apartamento=>{ %>
+                    <option value="<%=apartamento.id%>"><%=apartamento.apartamento%></option>
+                    <% }); %>
+                </select>
+            </div>
+            <% } %>
             <button type="submit">Actualizar</button>
         </form>
     </div>

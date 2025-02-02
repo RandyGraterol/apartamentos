@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/stylesForm/stylesForm.css">
+    <script src='/js/alertConfig.js'></script>
+    <title>Pagar</title>
+</head>
+<body>
+<form id='form' action="/crearPagoPost/<%=user.id%>" method="POST" enctype="multipart/form-data">
+            <div class="inputD">
+                <label for="codigo">codigo</label>
+                <input type="text" id="codigo" name="codigo" placeholder="Ingrese pago">
+            </div>
+
+            <div class="inputD">
+                <label for="comentario">Comentario</label>
+                <input type="text" id="comentario" name="comentario" required placeholder="Ingrese comentario">
+            </div>
+
+            <div class="inputD">
+                <label for="comprobante">comprobante</label>
+                <input type="file" id="comprobante" name="comprobante" required>
+            </div>
+        
+            <div>
+                <label for="monto">Monto</label>
+                <input type="number" placeholder="Ingrese Monto" name="monto" id="monto" required> 
+            </div>
+
+             <input type="number" value="<%=user.id%>" name="usuarioId" id="usuarioId" hidden>
+
+            <button class="btn btn-primary">Agregar Pago</button>
+        </form>
+</body>
+</html>

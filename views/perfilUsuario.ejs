@@ -9,36 +9,30 @@
 	<section class="perfilUsuario">
 		<div class="usuario">
 			<div class="userimgBox">
-				<img src="https://static-00.iconduck.com/assets.00/user-icon-2046x2048-9pwm22pp.png" alt="">
+				<img src="<%=us.imgPerfil%>" style='border-radius:50%;' alt="">
 			</div>
-			<div class="submitimgBox">
-				<label for="file">
-					<i class="fa-solid fa-angle-up"></i>
-					Subir Imagen
-				</label>
-				<input style="display: none;" id="file" type="file"> 
-			</div>
+
 		</div>
 		<div class="datosUsuarioBox">
 			<h1>Datos Personales</h1>
 			<div class="inputBox">
-				<span><i class="fa-solid fa-user"></i>User:</span>
-				<p>user</p>
+			    <i class="fa-solid fa-user"></i>
+				<p><%=us.nombre%></p>
 				<i class="fa-solid fa-check"></i>
 			</div>
 			<div class="inputBox seg">
 				<i class="fa-solid fa-envelope"></i>
-				<p>user</p>
+				<p><%=us.email%></p>
 				<i class="fa-solid fa-check"></i>
 			</div>
 			<div class="inputBox seg">
 				<i class="fa-solid fa-mobile"></i>
-				<p>user</p>
+				<p><%=us.telefono%></p>
 				<i class="fa-solid fa-check"></i>
 			</div>
 			<div class="inputBox seg">
 				<i class="fa-solid fa-lock"></i>
-				<p>user</p>
+				<p><%=us.password%></p>
 				<i class="fa-solid fa-check"></i>
 			</div>
 		</div>

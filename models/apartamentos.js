@@ -7,7 +7,7 @@ const Apartamentos = sequelize.define('apartamentos', {
         autoIncrement: true,
         primaryKey: true
     },
-    piso: {
+    piso:{
         type: DataTypes.STRING(10),
         allowNull: false
     },
@@ -18,6 +18,15 @@ const Apartamentos = sequelize.define('apartamentos', {
     apartamento:{
         type: DataTypes.STRING(10),
         allowNull: false
+    },
+     usuarioId: {
+        type: DataTypes.INTEGER, // Cambiado a INTEGER para que coincida con el modelo de Apartamentos
+        allowNull: true,
+        defaultValue:'Sin usuario',
+        references: {
+            model: 'usuarios',
+            key: 'id'
+        }
     },
     status:{
         type:DataTypes.STRING(7),

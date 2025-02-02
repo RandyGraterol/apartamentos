@@ -28,23 +28,15 @@ const Usuarios = sequelize.define('usuarios', {
         allowNull: true,
         defaultValue: '/img/default.png'
     },
-    apartamentoId: {
-        type: DataTypes.INTEGER, // Cambiado a INTEGER para que coincida con el modelo de Apartamentos
-        allowNull: false,
-        references: {
-            model: 'apartamentos',
-            key: 'id'
-        }
-    },
     deudaActual: {
         type: DataTypes.INTEGER(20),
         allowNull: true,
-        defaultValue: 'Sin deuda actual'
+        defaultValue:0
     },
     deudaPendiente: {
         type: DataTypes.INTEGER(20),
         allowNull: true,
-        defaultValue: 'Sin deuda pendiente'
+        defaultValue:0
     }
 }, { timestamps: true });
 

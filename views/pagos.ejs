@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Panel de Administrador</h1>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+          <%-include('nav')-%>
+          <main class="col-md-10 p-4">
+            <%- include('dashboarGeneral') -%>
+
+            <h2>Listado de Pagos</h2>
+            <div class="containerTable">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Codigo</th>
+                            <th>Comentario</th>
+                            <th>Comprobante</th>
+                            <th>UsuarioId</th>
+                            <th>Monto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuarioTableBody">
+                        <!-- Los usuarios se agregarán dinámicamente aquí -->
+                        <% paGos.forEach(pago=>{ %>
+                        <tr>
+                            <td><%=pago.id%></td>
+                            <td><%=pago.codigo%></td>
+                            <td><%=pago.comentario%></td>
+                            <td><%=pago.comprobante%></td>
+                            <td><%=pago.usuarioId%></td>
+                            <td><%=pago.monto%></td>
+                            <td>
+                               <a href="/updateUsuarioGet/<%=pago.id%>/adminPagos"><img class="imgOpcion" src="/icon/arrow.png" alt=""></a>
+
+                               <a href="/deleteUsuario/<%=pago.id%>/adminPagos">
+                                <img class="imgOpcion" src="/icon/trash.png" alt=""></a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Formulario para Agregar Usuario -->
+    <h2>Agregar Pago</h2>
+
+    <div class="card mb-3" id="reporte">
+        <form action="/crearPagoPost/0" method="POST" enctype="multipart/form-data">
+            <div class="inputD">
+                <label for="codigo">codigo</label>
+                <input type="text" id="codigo" name="codigo" placeholder="Ingrese pago">
+            </div>
+
+            <div class="inputD">
+                <label for="comentario">Comentario</label>
+                <input type="text" id="comentario" name="comentario" required placeholder="Ingrese comentario">
+            </div>
+
+            <div class="inputD">
+                <label for="comprobante">comprobante</label>
+                <input type="file" id="comprobante" name="comprobante" required>
+            </div>
+            <div class="inputD">
+                <label for="usuarioId">Identificador de usuario</label>
+                <select name="usuarioId" id="usuarioId">
+                    <% users.forEach(user=>{ %>
+                     <option value="<%=user.id%>"><%=user.email%></option>
+                    <% }); %>
+                </select>
+            </div>
+
+            <div>
+                <label for="monto">Monto</label>
+                <input type="number" placeholder="Ingrese Monto" name="monto" id="monto" required> 
+            </div>
+
+            <button class="btn btn-primary">Agregar Pago</button>
+        </form>
+    </div>
+</main>
+</div>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+<script src="js/panel.js"></script>
+<script src="js/usuarios.js"></script>
+</body>
+</html>

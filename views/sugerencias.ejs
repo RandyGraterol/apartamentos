@@ -1,43 +1,84 @@
-	<%- include ('./template/header.ejs')%>
-	<title>Sugerencias</title>
-	<link rel="stylesheet" href="./Css/body.css">
-	<link rel="stylesheet" href="./Css/sugerencias.css">
+<%- include('./template/header.ejs') %>
+<title>Sugerencias</title>
+<link rel="stylesheet" href="./Css/body.css">
+<link rel="stylesheet" href="./Css/sugerencias.css">
+<script src='/js/alertConfig.js'></script>
 </head>
 <body>
-	<%- include ('./template/fondoImg.ejs')%>
-	<%- include ('./template/options.ejs')%>
-	<div class="section">
-		<div class="imgBox">
-			<img src="./Jpg/micasa.jpg" alt="">
-		</div>
-		<section>
-			<form action="">
-				<div class="inpotBox">
-					<label for="">NOMBRE</label>
-					<input type="text">
-				</div>
-				<div class="inpotBox">
-					<label for="">APARTAMENTO</label>
-					<input type="number">
-				</div>
-				<div class="inpotBox">
-					<label for="">TELEFONO</label>
-					<input type="tel">
-				</div>
-				<div class="inpotBox">
-					<label for="">MOTIVO DE LA SUGERENCIA</label>
-					<input type="text">
-				</div>
-			</form>
-			<div class="desciptionSugerencesBox">
-				<h2>DESCRIBE TU SUGERENCIA</h2>
-				<textarea></textarea>
-				<button>Enviar</button>
-			</div>
-		</section>
-	</div>
-	<div class="grupoWHS">
-		<p>Enlace de Grupo de Whatsapp "<a href="/ejecutivo_II">EJECUTIVO II</a>" </p>
-	</div>
+    <%- include('./template/fondoImg.ejs') %>
+    <%- include('./template/options.ejs') %>
+    <div class="section">
+        <div class="imgBox">
+            <img src="./Jpg/micasa.jpg" alt="">
+        </div>
+        <section>
+            <form id='formulario'>
+                <div class="inpotBox">
+                    <label for="">nombre</label>
+                    <input type="text" id='nombre' required>
+                </div>
+
+                <div class="inpotBox">
+                    <label for="apartamentoId">apartamentoId</label>
+                    <select name="apartamentoId" id="apartamentoId" required>
+                        <% apartamentos.forEach(apartamento => { %>
+                        <option value="<%= apartamento.id %>"><%= apartamento.apartamento %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="inpotBox">
+                    <label for="telefono">telefono</label>
+                    <input type="number" id="telefono" name="telefono" required>
+                </div>
+
+                <div class="inpotBox">
+                    <label for="motivos">motivos</label>
+                    <input type="text" placeholder="Ingrese Motivo" name="motivos" id="motivos" required> 
+                </div>
+            </form>
+            <div class="desciptionSugerencesBox">
+                <h2>DESCRIBE TU SUGERENCIA</h2>
+                <textarea id="descripcion" name="descripcion" required></textarea> <!-- Agregado id -->
+                <button type="submit" form="formulario">Enviar</button> <!-- Asegúrate de que el botón envíe el formulario -->
+            </div>
+        </section>
+    </div>
+    <div class="grupoWHS">
+        <p>Enlace de Grupo de Whatsapp "<a href="/ejecutivo_II">EJECUTIVO II</a>" </p>
+    </div>
+    <script>
+        const formulario = document.getElementById('formulario');
+        formulario.addEventListener('submit', e => {
+            e.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const apartamentoId = document.getElementById("apartamentoId").value;
+            const telefono = document.getElementById("telefono").value;
+            const motivos = document.getElementById("motivos").value;
+            const descripcion = document.getElementById("descripcion").value; // Ahora se puede acceder correctamente
+            console.log('datos', nombre, descripcion);
+
+            fetch('/crearReporte/cliente', {
+                method: "POST", // Corrección aquí
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ nombre, apartamentoId, telefono, motivos, descripcion })
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log('segunda promesa');
+                if (res.status) {
+                    Swal.fire('¡Sugerencia enviada con éxito!');
+                } else {
+                    Swal.fire('¡No se pudo enviar la sugerencia!');
+                } 
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire('¡Ocurrió un error al enviar la sugerencia!');
+            });
+        });
+    </script>
 </body>
 </html>

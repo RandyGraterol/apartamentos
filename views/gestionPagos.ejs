@@ -16,19 +16,19 @@
 		<div class="datoSaldoBox">
 
 			<h1 class="titulo">Pagos</h1>
-
+  
 			<div class="saldoBox">
 				<span>
 					<p>Pendiente</p>:
-					<b>10,44Bs</b>
+					<b><%=data.deudaPendiente%> Bs</b>
 				</span>
 				<span>
 					<p>Actual</p>:
-					<b>50,44Bs</b>
+					<b><%=data.deudaActual%> Bs</b>
 				</span>
 				<span>
 					<p>Total</p>:
-					<b>660,44Bs</b>
+					<b><%= data.deudaPendiente + data.deudaActual%> Bs</b>
 				</span>
 			</div>
 
@@ -36,8 +36,14 @@
 				<button>Factura Siguiente</button>
 				<button>Factura Anterior</button>
 			</div>
-			<button>Pagar Factura</button>
+			<button id='pagar' style='cursor:pointer'>Pagar Factura</button>
 		</div>
 	</section>
+	<script>
+		const pagar = document.getElementById('pagar');
+		pagar.addEventListener('click',()=>{
+			window.location.href='/pagar';
+		});
+	</script>
 </body>
 </html>
