@@ -1,7 +1,7 @@
 body{
+	background-image: url('/Jpg/micasa.jpg');
 	flex-direction: column;
-	gap: 20px;
-	overflow: hidden;
+	gap: 10px;
 }
 .liBox{
 	width: 75%;
@@ -11,8 +11,7 @@ body{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	gap: 20px;
-	transform: translateY(30PX);
+	gap: 1%;
 }
 .liBox a{
 	font-size: 1.3em;
@@ -35,6 +34,7 @@ body{
 	width: 100%;
 	height: 80%;
 	padding: 10px;
+	gap: 10px;
 }
 .section .imgBox{
 	width: 50%;
@@ -50,7 +50,7 @@ body{
 	height: 100%;
 	background-size:cover ;
 }
-.section section{
+.section .sectionForm{
 	width: 55%;
 	height: 100%;
 	display: flex;
@@ -61,7 +61,7 @@ body{
 	padding:20px;
 	border-radius: 5px;
 }
-.section section form{
+.section .sectionForm form{
 	width: 70%;
 	height: 100%;
 	display: flex;
@@ -71,19 +71,19 @@ body{
 	gap: 20px;
 	color: white;
 }
-.section section form .inpotBox{
+.section .sectionForm form .inpotBox{
 	display: flex;
 	flex-direction: column;
 	width: 95%;
 	gap: 10px;
 }
-.section section form .inpotBox label{
+.section .sectionForm form .inpotBox label{
 	font-weight: 700;
 	font-size: 1.5em;
 	font-family: sans-serif;
 	padding: 0 20px;
 }
-.section section form .inpotBox input{
+.section .sectionForm form .inpotBox input{
 	width: 100%;
 	height: 45px;
 	background: white;
@@ -95,7 +95,12 @@ body{
 	text-transform: uppercase;
 	font-weight: 700;
 }
-.section section .desciptionSugerencesBox{
+.section .sectionForm form .inpotBox #apartamentoId{
+	height: 45px;
+	border-radius: 15px;
+	text-align: center;
+}
+.section .sectionForm .desciptionSugerencesBox{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -104,11 +109,11 @@ body{
 	color: white;
 	gap: 10px;
 }
-.section section .desciptionSugerencesBox h2{
+.section .sectionForm .desciptionSugerencesBox h2{
 	font-size: 1.2em;
 	font-family: sans-serif;
 }
-.section section .desciptionSugerencesBox textarea{
+.section .sectionForm .desciptionSugerencesBox textarea{
 	width: 90%;
 	height: 270px;
 	border-radius: 10px;
@@ -117,7 +122,7 @@ body{
 	font-size: 1.2em;
 	outline: none;
 }
-.section section .desciptionSugerencesBox button{
+.section .sectionForm .desciptionSugerencesBox button{
 	width: 40%;
 	padding: 10px;
 	background: white;
@@ -127,7 +132,7 @@ body{
 	border-radius: 15px;
 	transition: .2s;
 }
-.section section .desciptionSugerencesBox button:hover{
+.section .sectionForm .desciptionSugerencesBox button:hover{
 	scale: 1.1;
 	background: black;
 	color: white;
@@ -141,7 +146,7 @@ body{
 	font-size: 1.1em;
 	color: white;
 	font-family: sans-serif;
-	transform: translateY(-40PX);
+	margin-bottom: 10px;
 }
 .grupoWHS a{
 	text-decoration: none;
@@ -154,4 +159,57 @@ body{
 	color: black;
 	padding: 5px;
 	border-radius: 10px;
+}
+@media(max-width:1150px){
+	.section .imgBox{
+		transform: translateX(-150px) translateY(70px);
+	}
+}
+@media(max-width:1000px){
+	.section .imgBox{
+		transform: translateX(-100px) translateY(70px);
+	}
+	.section .sectionForm{
+		width: 54%;
+		transform: translateX(1px);
+	}
+}
+@media(max-width:800px){
+	.liBox a{
+		font-size: 1em;
+	}
+	.section{
+		justify-content: center;
+		align-items: center;
+	}
+	.section .imgBox{
+		display: none;
+	}
+	.section .sectionForm{
+		width: 80%;
+		transform: translateX(0);
+	}
+}
+@media(max-width:620px){
+	.section .sectionForm{
+		width: 98%;
+	}
+}
+@media(max-width:520px){
+	.section .sectionForm{
+		flex-direction: column;
+		gap: 20px;
+	}
+	.section .sectionForm form {
+		width: 100%;
+	}
+	.section .sectionForm form .inpotBox label{
+		font-size: 1.2em;
+	}
+	.section .sectionForm .desciptionSugerencesBox{
+		width: 100%;	
+	}
+	.section .sectionForm .desciptionSugerencesBox h2{
+		font-size: 1.2em;
+	}
 }

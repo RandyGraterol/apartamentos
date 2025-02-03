@@ -1,3 +1,6 @@
+body{
+	background-image: url('/Jpg/micasa.jpg');
+}
 h3{
 	text-align: center;
 	color:whitesmoke;
@@ -9,7 +12,8 @@ h3{
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	gap: 20px;	
+	gap: 20px;
+	transition: .5s;	
 }
 .Login img{
 	width: 45%;
@@ -72,4 +76,23 @@ h3{
 .imgBox .jovencitos{
 	width: 70%;
 	background-size: cover;
+}
+@media(max-width:820px){
+	.Login{
+		width: 70%;
+	}
+
+	.imgBox{
+		display: none;
+	}
+
+}
+@media(max-width:420px){
+	.Login{
+		width: 97%;
+	}
+	.Login span{
+		font-size: 1.3em;
+	}
+
 }

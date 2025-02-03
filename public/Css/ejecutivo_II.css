@@ -1,4 +1,5 @@
 body{
+	background-image: url('/Jpg/micasa.jpg');
 	flex-direction: column;
 	gap: 20px;
 }
@@ -10,7 +11,8 @@ body{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	gap: 20px;
+	transition: .3s;
+	gap: 1%;
 }
 .liBox a{
 	font-size: 1.3em;
@@ -33,6 +35,7 @@ section{
 	align-items: center;
 	background: rgb(0, 39, 127, .8);
 	border-radius: 10px;
+	overflow: hidden;
 }
 section .imgBox{
 	position: relative;
@@ -42,6 +45,7 @@ section .imgBox{
 section .imgBox img{
 	position: absolute;
 	height: 100%;
+	transition: .3s;
 }
 section .banner{
 	width: 40%;
@@ -86,4 +90,67 @@ section .banner .puntos{
 	font-weight: 1000;
 	font-size: 1.8em;
 	color: yellow;
+}
+@media(max-width:1230px){
+	section .banner .detalles .button button{
+		font-size: 1em;
+	}
+}
+@media(max-width:1150px){
+	section .banner{
+		width: 55%;
+	}
+}
+@media(max-width:920px){
+	section .banner{
+		width: 70%;
+		transform: translateX(-20px);
+	}
+	section .imgBox img{
+		opacity: .8;
+	}
+}
+@media(max-width:850px){
+	.liBox a{
+		font-size: 1em;
+	}
+}
+@media(max-width:770px){
+	section .imgBox{
+		width: 1%;
+	}
+	section .banner{
+		width: 100%;
+		transform: translateX(-20px);
+	}
+	section .banner .puntos{
+		margin: 0 auto;
+	}
+}
+@media(max-width:520px){
+	section {
+		width: 95%;
+	}
+	section .banner{
+		transform: translateX(0);
+	}
+	section .banner .detalles h1{
+		font-size: 3em;
+	}
+	section .banner .detalles .button button{
+		padding: 7px 12px;
+		font-size: .9em;
+	}
+}
+@media(max-width:480px){
+	section .banner .detalles h1{
+		font-size: 2.7em;
+	}
+	section .banner .puntos{
+		width: 280px;
+
+	}
+	section .banner .detalles .button button{
+		font-size: .8em;
+	}
 }

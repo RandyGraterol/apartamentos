@@ -1,37 +1,37 @@
 <div class="card mb-4" id="dashboard">
+    <div class="card-body">
+        <h2 class="card-title">Dashboard Principal</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header">Resumen General</div>
                     <div class="card-body">
-                        <h2 class="card-title">Dashboard Principal</h2>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card bg-light mb-3">
-                                    <div class="card-header">Resumen General</div>
-                                    <div class="card-body">
-                                        <p>Total de Usuarios: <span id="rutasActivas"><%=users.length%></span></p>
-                                        <p>Total de Pagos: <span id="vehiculosOperacion"><%=paGos.length%></span></p>
-                                        <p>Total de Facturas:<span id="usuariosTotal"><%=factUras.length%></span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card bg-light mb-3">
-                                    <div class="card-header">Apartamentos</div>
-                                    <div class="card-body">
-                                        <p>Disponibles: <span id="puntualidad"><%=activos%></span></p>
-                                        <p>Ocupados: <span id="ocupacionVehiculos"><%=inactivos%></span></p>
-                                        <p>Totales: <span id="distanciaRecorrida"><%=apartamentOs.length%></span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card bg-light mb-3">
-                                    <div class="card-header">Notificaciones</div>
-                                    <div class="card-body">
-                                        <p>Reportes: <span id="incidentes"><%=repoRtes.length%></span></p>
-                                        <p>deudas Actuales: <span id="retrasos"><%=totalDeudaActual%> Bs</span></p>
-                                        <p>Deudas Pendientes: <span id="mantenimiento"><%=totalDeudaPendiente%> Bs</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p>Total de Usuarios: <span id="rutasActivas"><%=users.length%></span></p>
+                        <p>Total de Pagos: <span id="vehiculosOperacion"><%=paGos.length%></span></p>
+                        <p>Total de Facturas:<span id="usuariosTotal"><%=factUras.length%></span></p>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header">Apartamentos</div>
+                    <div class="card-body">
+                        <p>Disponibles: <span id="puntualidad"><%=activos%></span></p>
+                        <p>Ocupados: <span id="ocupacionVehiculos"><%=inactivos%></span></p>
+                        <p>Totales: <span id="distanciaRecorrida"><%=apartamentOs.length%></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header">Notificaciones</div>
+                    <div class="card-body">
+                        <p>Reportes: <span id="incidentes"><%=repoRtes.length%></span></p>
+                        <p>deudas Actuales: <span id="retrasos"><%=totalDeudaActual%> Bs</span></p>
+                        <p>Deudas Pendientes: <span id="mantenimiento"><%=totalDeudaPendiente%> Bs</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

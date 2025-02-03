@@ -1,4 +1,5 @@
 body{
+	background-image: url('/Jpg/micasa.jpg');
 	flex-direction: column;
 }
 .imgBox__img{
@@ -18,7 +19,7 @@ body{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	gap: 20px;
+	gap: 1%;
 	margin-top: 20px;
 }
 .liBox a{
@@ -107,4 +108,39 @@ body{
 }
 .consultaBox .datoSaldoBox button{
 	width: auto;
+}
+@media(max-width:1080px){
+	.imgBox__img{
+		display: none;
+	}
+	.liBox a{
+		font-size: 1em;
+	}
+	.consultaBox .imgBox{
+		width: 60%;
+	}
+}
+@media(max-width:850px){
+	.liBox{
+		width: 75%;
+	}
+	.liBox a{
+		font-size: 1em;
+	}
+}
+@media(max-width:720px){
+	.liBox{
+		width: 85%;
+	}
+	body{
+		gap: 40px;
+	}
+	.consultaBox .imgBox{
+		display: none;
+	}
+}
+@media(max-width:570px){
+	.consultaBox .datoSaldoBox .navBox button{
+		width: auto;
+	}
 }

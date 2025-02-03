@@ -1,4 +1,5 @@
 body{
+	background-image: url('/Jpg/micasa.jpg');
 	flex-direction: column;
 	gap: 10px;
 }
@@ -6,7 +7,7 @@ body{
 	position: absolute;
 	right: 40px;
 	top: 10px;
-	width: 13%;
+	width: 12%;
 }
 .imgBox img{
 	width: 100%;
@@ -16,14 +17,15 @@ body{
 	font-size: 4.8em;
 }
 .liBox{
-	width: 75%;
+	position: relative;
+	width: 65%;
 	height: 45px;
 	border-radius: 7px;
 	background: white;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	gap: 20px;
+	gap: 1.5%;
 }
 .liBox a{
 	font-size: 1.3em;
@@ -43,8 +45,7 @@ body{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	gap: 20px;
-	overflow-x: scroll;
+	gap: 1%;
 }
 .banerOption .optionBox{
 	min-width: 100px;
@@ -104,10 +105,38 @@ body{
 	margin-bottom: 8px;
 	cursor: pointer;
 }
-.banerOption .optionBox .submitButtom:hover{
-	
-}
 .banerOption .optionBox .submitButtom a{
 	text-decoration: none;
 	color: white;
+}
+@media(max-width:1100px){
+	.banerOption{
+		flex-direction: column;
+		overflow-x: scroll;
+	}
+	.liBox a{
+		font-size: 1.2em;
+	}
+}
+@media(max-width:920px){
+	.liBox a{
+		font-size: 1em;
+	}
+	.banerOption .optionBox{
+		margin-bottom: 10px;
+	}
+
+}
+@media(max-width:750px){
+	.bienvenidosH1{
+		font-size: 4em;
+	}
+	.imgBox{
+		display: none;
+	}
+}
+@media(max-width:450px){
+	.bienvenidosH1{
+		font-size: 3em;
+	}
 }

@@ -1,0 +1,55 @@
+@media(max-width: 750px){
+	.liBox{
+		position: absolute;
+		flex-direction: column;
+		top: 30px;
+		left: 10px;
+		width: 50px;
+		height: 50px;
+		padding: 10px;
+		border-radius: 50%;
+		gap: 10px;
+		transition: .5s;
+		z-index: 2;
+	}
+	.liBox a{
+		display: none;
+	}
+	.liBox .svgBox{
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		right: 0;
+		bottom: 0;
+		transition: .5s allow;
+	}
+	.liBox .svgBox .svg{
+		display: flex;
+		position: absolute;
+		background: white;
+		transition: .5s;
+		cursor: pointer;
+	}
+	.liBox.active{
+		height: 176px;
+		width: 189px;
+		border-radius: 10px;
+		overflow: none;
+	}
+	.liBox.active a{
+		display: flex;
+		transition: .5s;
+	}
+	.liBox.active .svgBox{
+		rotate: 180deg;
+		right: -10px;
+		top: 0;
+	}
+	.liBox.active .bars{
+		z-index: 1;
+	}
+	.liBox.active .clouse{
+		z-index: 2;
+	}
+
+}

@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="/css/stylesForm/stylesForm.css">
     <script src='/js/alertConfig.js'></script>
+    <link rel="stylesheet" href="/Css/stylesForm/stylesForm.css">
+    <link rel="stylesheet" href="/Css/body.css">
     <title>Pagar</title>
 </head>
 <body>
-<form id='form' action="/crearPagoPost/<%=user.id%>" method="POST" enctype="multipart/form-data">
+        <h1>Centro de Pagos</h1>
+        <form id='form' class="formulario" action="/crearPagoPost/<%=user.id%>" method="POST" enctype="multipart/form-data">
             <div class="inputD">
                 <label for="codigo">codigo</label>
-                <input type="text" id="codigo" name="codigo" placeholder="Ingrese pago">
+                <input type="text" id="codigo" name="codigo" placeholder="Ingrese codigo de pago" required>
             </div>
 
             <div class="inputD">
@@ -21,8 +23,22 @@
             </div>
 
             <div class="inputD">
-                <label for="comprobante">comprobante</label>
-                <input type="file" id="comprobante" name="comprobante" required>
+                <label >comprobante</label>
+                <input  type="file" style="display: none;" id="comprobante" name="comprobante" required>
+                <label for="comprobante" class="boton1">
+                  <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 384 512"
+                            width='24'
+                            height='24'
+                            >
+                            <path fill="#fff" d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM216 408c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-102.1-31 31c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l72-72c9.4-9.4 24.6-9.4 33.9 0l72 72c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-31-31L216 408z"/></svg>
+                    </div>
+                  </div>
+                  <span class="text">File</span>
+                </label>
             </div>
         
             <div>
@@ -32,7 +48,7 @@
 
              <input type="number" value="<%=user.id%>" name="usuarioId" id="usuarioId" hidden>
 
-            <button class="btn btn-primary">Agregar Pago</button>
+            <input class="btn btn-primary" type="submit" value="Pagar">
         </form>
 </body>
 </html>

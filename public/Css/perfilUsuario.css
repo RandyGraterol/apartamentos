@@ -1,4 +1,5 @@
 body{
+	background-image: url('/Jpg/micasa.jpg');
 	flex-direction: column;
 	gap: 20px;
 }
@@ -10,7 +11,7 @@ body{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	gap: 20px;
+	gap: 1%	;
 }
 .liBox a{
 	font-size: 1.3em;
@@ -72,6 +73,7 @@ body{
 	font-size: 1.8em;
 	font-weight: 700;
 	font-family: sans-serif;
+	cursor: pointer;
 }
 .perfilUsuario .datosUsuarioBox{
 	min-width: 350px;
@@ -199,4 +201,40 @@ body{
 	color: black;
 	padding: 5px;
 	border-radius: 10px;
+}
+@media(max-width:1150px){
+	.perfilUsuario{
+		gap: 5px;
+	}
+}
+@media(max-width:1150px){
+	.liBox{
+		margin-top: 10px;
+		width: 85%;
+	}
+
+	.perfilUsuario{
+		flex-direction: column;
+		gap: 20px;
+	}
+}
+@media(max-width:1000px){
+	.liBox a{
+		font-size: 1.1em;
+	}
+}
+@media(max-width:650px){
+	.liBox a{
+		font-size: 1em;
+	}
+}
+@media(max-width:580px){
+	.perfilUsuario{
+		margin-top: 20px;
+	}
+}
+@media(max-width:420px){
+	.perfilUsuario .datosUsuarioBox .inputBox p{
+		font-size: .8em;
+	}
 }

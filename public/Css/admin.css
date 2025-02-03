@@ -1,33 +1,58 @@
-/* Estilos generales */
+ /* Estilos generales */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+nav{
+    position: sticky;
+    top: 0;
+}
+nav ul{
+    position: sticky;
+    top: 0 ;
+}
+.bg-secondary{
+    background: linear-gradient(0deg, #5211ff,#4400ff) !important;
+}
+main{
+    height: calc(100vh - 88px);
+}
 /* Contenedor principal */
 .containerTable{
-     overflow-x:auto !important;
+     overflow-x:auto ;
 }.imgOpcion{
-    width:30px;
+    width:30px !important;
+    height:30px;
+    background-size: cover;
 }.col-md-2{
-    margin:0 !important;
-    background:rgb(14, 44, 111) !important;
+    margin:0;
 }
 .bg-dark{
-background: rgb(14, 44, 111) !important;
+    background: linear-gradient(180deg, #5211ff,#4400ff) !important;
 }
+.bg-dark h1{
+    font-weight: 1000;
+}
+
 /* Estilo para el título */
 h1 {
     text-align: center; /* Centrar el título */
     color: whitesmoke; /* Color azul */
-
 }
+
 
 /* Estilo para el formulario */
 .formulario {
     display: flex; /* Usar flexbox para alinear elementos */
     flex-direction: column; /* Colocar elementos en columna */
     padding:2rem;
+    min-width: 300px;
+    width: 100%;
+    max-width: 650px;
+    gap: 20px;
+    font-family: sans-serif;
+    margin: 0 auto;
 }
 
 /* Estilo para los campos de entrada */
@@ -74,34 +99,16 @@ button:hover {
 }
 
 /* Estilos responsivos */
-@media (max-width: 600px) {
-    .container {
-        margin: 20px; /* Espaciado reducido en pantallas pequeñas */
-        padding: 15px; /* Espaciado interno reducido */
-    }
-    h1{
-        font-size: 24px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-    }
-
-    button {
-        font-size: 14px; /* Tamaño de fuente más pequeño para el botón */
-    }
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
 .header {
     background-color: #4400ff;
     color: #fff;
     padding: 10px 0;
     text-align: center;
 }
-.container {
+.container{
     display: flex;
     flex-direction: row;
+    margin: 0;
 }
 .sidebar {
     width: 250px;
@@ -159,13 +166,18 @@ button:hover {
 .table th, .table td {
     text-align: center;
 }
-
-.table img {
-    max-width: 50px; /* Limita el tamaño de las imágenes */
-    height: auto;
-}
-
 @media (max-width: 768px) {
+    nav{
+        position: relative;
+    }
+    nav ul{
+        width: 100%;
+    }
+    nav ul li{
+        display: flex;
+        gap: 10px;
+        margin: 0 auto;
+    }
     .table thead {
         display: none; /* Oculta el encabezado en pantallas pequeñas */
     }
@@ -179,5 +191,14 @@ button:hover {
         padding: 10px; /* Espaciado interno */
         text-align: left; /* Alineación a la izquierda */
         border: 1px solid #ddd; /* Borde para cada celda */
+    }
+}
+@media (max-width: 600px) {
+    h1{
+        font-size: 24px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+
+    button {
+        font-size: 14px; /* Tamaño de fuente más pequeño para el botón */
     }
 }
