@@ -1,154 +1,93 @@
 /* Estilos generales */
+
+/* styles.css */
+
+/* Estilos generales */
 body {
-    background-image: url('/Jpg/micasa.jpg');
+    font-family: Arial, sans-serif;
+ 
     flex-direction: column;
-}
-h1{
-    color: #fff;
-    font-weight: 1000;
-    font-family: sans-serif;
-    text-align: center; /* Centrar el título */
-}
-.boton1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  font-family: inherit;
-  font-size: 20px;
-  background: royalblue;
-  color: white;
-  padding: 0.7em 1em;
-  padding-left: 0.9em;
-  display: flex;
-  align-items: center;
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.2s;
-  cursor: pointer;
-  height: 40px;
-  width: 100px;
-  margin: 0 auto;
-}
-.boton1 .text {
-  display: block;
-  transition: all 0.3s ease-in-out;
-}
-.boton1 svg {
-  display: block;
-  transition: transform 0.3s ease-in-out;
-}
-.boton1:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
-}
-.boton1:hover svg {
-  transform: translateX(.7em) scale(1.1);
-}
-.boton1:hover .text {
-  transform: translateX(2.9em);
-}
-.boton1:active {
-  transform: scale(0.9);
-  box-shadow: 1px 1px 10px rgb(255, 255, 225) inset ;
-}
-@keyframes fly-1 {
-  from {
-    transform: translateY(0.1em) rotate(15deg);
-  }
-  to {
-    transform: translateY(-0.1em) rotate(-15deg);
-  }
+    margin: 0;
+    padding: 0;
 }
 
 /* Contenedor principal */
 .container {
-    max-width: 600px; /* Ancho máximo del contenedor */
-    margin: 50px auto; /* Centrar el contenedor */
-    padding: 20px; /* Espaciado interno */
-    background-color: #ffffff; /* Fondo blanco */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-
-/* Estilo para el formulario */
-.formulario {
-    display: flex; /* Usar flexbox para alinear elementos */
-    flex-direction: column; /* Colocar elementos en columna */
-    padding:2rem;
-    min-width: 300px;
-    width: 100%;
-    max-width: 650px;
-    gap: 20px;
-    font-family: sans-serif;
-}
-
-/* Estilo para los campos de entrada */
-.inputD {
-    display: flex;
+    display:flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-label {
-    display: block; /* Hacer que las etiquetas ocupen toda la línea */
-    color: #fff; /* Color de texto oscuro */
-    font-size: 1.4em;
-    font-weight: 1000;
+/* Estilo del título */
+h1 {
+    color: #007BFF; /* Color azul */
+    text-align: center; /* Centrar texto */
+    margin-bottom: 20px; /* Espacio inferior */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-input[type="number"] {
+/* Estilo del formulario */
+.formulario {
+    display: flex;
+    flex-direction: column; /* Colocar elementos en columna */
+    width:100%;
+}
+
+/* Estilo de los inputs */
+.inputD {
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+.inputD label {
+    display: block; /* Mostrar como bloque */
+    margin-bottom: 5px; /* Espacio inferior */
+    color: #007BFF; /* Color azul */
+}
+
+.inputD input,
+.inputD select {
     width: 100%; /* Ancho completo */
-    padding: 10px; /* Espaciado interno */
-    border: none; /* Borde gris claro */
-    border-radius: 15px; /* Bordes redondeados */
+    padding:.7rem 0;
+    border: 1px solid #007BFF; /* Borde azul */
+    border-radius: 5px; /* Bordes redondeados */
     transition: border-color 0.3s; /* Transición suave para el borde */
-    font-weight: 1000;
-    outline: none; /* Quitar el contorno predeterminado */
-}
-input[type="submit"]{
-    min-width: 100px;
-    width: 100%;
-    max-width: 200px;
-    height: 40px;
-    background: #007bff;
-    margin: 0 auto;
-    border: none;
-    border-radius: 15px;
-    color: white;
-    font-weight: 1000;
-    transition: .3s;
-}
-input[type="submit"]:hover {
-    scale: 1.1;
-    letter-spacing: .1em;
 }
 
-input[type="text"]:focus {
-    border-color: #007bff; /* Cambiar el color del borde al enfocar */
+.inputD input:focus,
+.inputD select:focus {
+    border-color: #0056b3; /* Color azul más oscuro al enfocar */
+    outline: none; /* Sin contorno */
 }
 
+/* Estilo del botón */
 button {
-    padding: 10px; /* Espaciado interno */
-    background-color: #007bff; /* Color de fondo azul */
-    color: white; /* Color de texto blanco */
+    background-color: #007BFF; /* Color azul */
+    color: white; /* Color blanco */
     border: none; /* Sin borde */
-    border-radius: 4px; /* Bordes redondeados */
-    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
-    font-size: 16px; /* Tamaño de fuente */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
     transition: background-color 0.3s; /* Transición suave para el fondo */
 }
 
 button:hover {
-    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+    background-color: #0056b3; /* Color azul más oscuro al pasar el mouse */
 }
 
 /* Estilos responsivos */
 @media (max-width: 600px) {
-    h1{
-        font-size: 1.7em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    .container {
+        padding: 15px; /* Menos padding en pantallas pequeñas */
+    }
+
+    button {
+        padding: 8px; /* Menos padding en el botón */
     }
 }

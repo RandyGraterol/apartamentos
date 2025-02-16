@@ -12,12 +12,12 @@
 	<%-include('./template/options.ejs')%>
 	<section class="consultaBox">
 		<div class="imgBox">
-			<img class="img_1" src="./Png/viejitos.png" alt="">
+			<img class="img_1" src="./Png/viejitos.avif" alt="">
 		</div>
 		<div class="datoSaldoBox">
 
 			<h1 class="titulo">Pagos</h1>
-  
+
 			<div class="saldoBox">
 				<span>
 					<p>Pendiente</p>:
@@ -35,17 +35,22 @@
 
 			<div class="navBox">
 				<button>Factura Siguiente</button>
-				<button>Factura Anterior</button>
+
+				<a title='Descargar ultima factura' href="/descargarPDF/<%=f.id%>">
+				<img width="50" class="imgOpcion" src="/icon/download-pdf.png" alt="">
+			    </a>
+
+					<button>Factura Anterior</button>
+				</div>
+				<button id='pagar' style='cursor:pointer'>Pagar Factura</button>
 			</div>
-			<button id='pagar' style='cursor:pointer'>Pagar Factura</button>
-		</div>
-	</section>
-	<script>
-		const pagar = document.getElementById('pagar');
-		pagar.addEventListener('click',()=>{
-			window.location.href='/pagar';
-		});
-	</script>
-	<script src="/Js/menu.js"></script>
-</body>
-</html>
+		</section>
+		<script>
+			const pagar = document.getElementById('pagar');
+			pagar.addEventListener('click',()=>{
+				window.location.href='/pagar';
+			});
+		</script>
+		<script src="/Js/menu.js"></script>
+	</body>
+	</html>

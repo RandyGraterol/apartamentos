@@ -26,8 +26,8 @@ const consulta = async()=>{
   const activos = apartamentOs.filter(apartamento => apartamento.status === 'true').length;
   const inactivos = apartamentOs.filter(apartamento => apartamento.status === 'false').length;
   return{
-     apartamentOs,paGos,users,repoRtes,factUras,activos,inactivos,totalDeudaActual,totalDeudaPendiente
- }
+   apartamentOs,paGos,users,repoRtes,factUras,activos,inactivos,totalDeudaActual,totalDeudaPendiente
+}
 }
 //tablas
 const apartamentos = require('../models/apartamentos.js');
@@ -90,16 +90,20 @@ const perfilUsuario = async(req,res)=>{
 }
 const gestion_de_pagos = async(req,res)=>{
     try{
-        let id;
+        let id,idF;
         if(req.session.isAdmin){
             id = req.session.idAdminLogin ;
         }
         const data = await usuarios.findOne({where:{id}});
-        res.render('gestionPagos',{data});
-    }catch(error){
-        console.error(error.message);
-        res.status(500).json({status:"X",error:error.message});
-    };
+        if(data){
+          idF=data.id;
+      }
+      const f = await facturas.findOne({where:{usuarioId:idF}});
+      res.render('gestionPagos',{data,f});
+  }catch(error){
+    console.error(error.message);
+    res.status(500).json({status:"X",error:error.message});
+};
 }
 ///////////////////////////////////////////////////////////////
 const pagar = async(req,res)=>{
@@ -109,13 +113,13 @@ const pagar = async(req,res)=>{
         if(user){
           console.log(`usuario ID: ${JSON.stringify(user)}`);
           return res.render('pagar',{user});   
-        }
-         res.status(500).send('Error al mostrar plantilla Pagar.');
-        
-    }catch(error){
-     console.error(error.message);
-     res.status(500).json({status:"X",error:error.message});
- }
+      }
+      res.status(500).send('Error al mostrar plantilla Pagar.');
+
+  }catch(error){
+   console.error(error.message);
+   res.status(500).json({status:"X",error:error.message});
+}
 }
 //////////////////////////////////////////////////////////////
 const viewAdmin = (req,res)=>{
@@ -143,10 +147,10 @@ const loginPost = async(req,res)=>{
             req.session.isAdmin =true;// Establecer propiedad en la sesión
             req.session.idAdminLogin = data.id;
             if(data.id == 1){
-             role='admin';
-         }
-         res.json({status:true,role});
-     }else{
+               role='admin';
+           }
+           res.json({status:true,role});
+       }else{
         res.json({status:false});
     }
 }catch(error){
@@ -158,9 +162,9 @@ const loginPost = async(req,res)=>{
 ////////////////////////////////////////////////////////////////
 const crearPost = async(req,res)=>{
     try{
-     const {nombre,email,telefono,password,deudaActual,deudaPendiente} = req.body;
-     let portada;
-     if (req.file){
+       const {nombre,email,telefono,password,deudaActual,deudaPendiente} = req.body;
+       let portada;
+       if (req.file){
       // Si se sube una imagen
         portada = `/uploads/${req.file.filename}`;
         await usuarios.create({nombre,email,telefono,password,imgPerfil:portada,deudaActual,deudaPendiente});
@@ -174,13 +178,13 @@ const crearPost = async(req,res)=>{
 /////////////////////////////////////////////////////////////
 const crearApartamentoPost = async(req,res)=>{
     try{
-     const {piso,edificio,apartamento,usuarioId} = req.body;
-     await apartamentos.create({piso,edificio,apartamento,usuarioId,status:'true'});
-     res.redirect('/apartamentos');
- }catch(error){
-  console.error(error.message);
-  res.status(500).json({error:error.message});
-}
+       const {piso,edificio,apartamento,usuarioId} = req.body;
+       await apartamentos.create({piso,edificio,apartamento,usuarioId,status:'true'});
+       res.redirect('/apartamentos');
+   }catch(error){
+      console.error(error.message);
+      res.status(500).json({error:error.message});
+  }
 }
 /////////////////////////////////////////////////////////////
 const crearPagoPost = async (req, res) => {
@@ -205,12 +209,12 @@ const crearPagoPost = async (req, res) => {
 
             // Actualizar el usuario
             await usuarios.update(
-                {
-                    deudaActual: nuevaDeudaActual,
+            {
+                deudaActual: nuevaDeudaActual,
                     deudaPendiente: nuevaDeudaPendiente // Ajusta esto si necesitas cambiar la deuda pendiente
                 },
                 { where: { id: usuarioId } }
-            );
+                );
         }
 
         // Redirigir según el ID
@@ -238,9 +242,9 @@ const crearReporte = async(req,res)=>{
             res.json({status:true});
         }
     }catch(error){
-     console.error(error.message);
-     res.status(500).json({status:false,error:error.message});
- }
+       console.error(error.message);
+       res.status(500).json({status:false,error:error.message});
+   }
 }
 /////////////////////////////////////////////////////////////
 const crearFactura = async(req,res)=>{
@@ -255,11 +259,11 @@ const crearFactura = async(req,res)=>{
 }
 /////////////////////////////////////////////////////////////
 const recovery = (req,res)=>{
- try{
-  res.render('recoveryPassword');
-}catch{
- console.error(error.message);
- res.status(500).json({error:error.message});
+   try{
+      res.render('recoveryPassword');
+  }catch{
+   console.error(error.message);
+   res.status(500).json({error:error.message});
 }
 }
 ////////////////////////////////////////////////////////////////
@@ -279,44 +283,44 @@ const recoveryPost = async(req,res)=>{
               text:`http://localhost:3500/restablecer`
           }
           transporter.sendMail(mensaje,(error,info)=>{
-           if(error){
-             console.log(error.message);
-         }else{
-          console.log(`Enlace de recuperación de password enviado ${info.response}`);
-      }
-  })
+             if(error){
+               console.log(error.message);
+           }else{
+              console.log(`Enlace de recuperación de password enviado ${info.response}`);
+          }
+      })
           res.json({status:true});
       }else{
           res.json({status:false}); 
       }
   }catch(error){
-   console.error(error.message);
-   res.status(500).json({status:'X',error:error.message});
-}
+     console.error(error.message);
+     res.status(500).json({status:'X',error:error.message});
+ }
 }
 
 ////////////////////////////////////////////////////////////////
 const restablecerPasswordPost = async(req,res)=>{
-   try{
+ try{
     const id = req.session.idSesion;
     const {password} = req.body;
     console.log(`datos provenientes del cliente ${id} ${password}`);
     await usuarios.update({password},{where:{id}}); 
     res.json({status:true});
 }catch(error){
- console.error(error.message);
- res.status(500).json({status:false,error:error.message});
+   console.error(error.message);
+   res.status(500).json({status:false,error:error.message});
 }
 }
 ////////////////////////////////////////////////////////////////
 const dashboar = async(req,res)=>{
     try{
-       let data= await consulta(); 
-       res.render('admin',{users:data.users,paGos:data.paGos,apartamentOs:data.apartamentOs,activos:data.activos,inactivos:data.inactivos,repoRtes:data.repoRtes,factUras:data.factUras,totalDeudaActual:data.totalDeudaActual,totalDeudaPendiente:data.totalDeudaPendiente});
-   }catch(error){
-       console.error(error.message);
-       res.status(500).json({status:false,error:error.message});
-   }
+     let data= await consulta(); 
+     res.render('admin',{users:data.users,paGos:data.paGos,apartamentOs:data.apartamentOs,activos:data.activos,inactivos:data.inactivos,repoRtes:data.repoRtes,factUras:data.factUras,totalDeudaActual:data.totalDeudaActual,totalDeudaPendiente:data.totalDeudaPendiente});
+ }catch(error){
+     console.error(error.message);
+     res.status(500).json({status:false,error:error.message});
+ }
 }
 ////////////////////////////////////////////////////////////////
 const usUarios = async(req,res)=>{
@@ -324,9 +328,9 @@ const usUarios = async(req,res)=>{
         let data= await consulta(); 
         res.render('usuarios',{users:data.users,paGos:data.paGos,apartamentOs:data.apartamentOs,activos:data.activos,inactivos:data.inactivos,repoRtes:data.repoRtes,factUras:data.factUras,totalDeudaActual:data.totalDeudaActual,totalDeudaPendiente:data.totalDeudaPendiente});
     }catch(error){
-       console.error(error.message);
-       res.status(500).json({status:false,error:error.message});
-   }
+     console.error(error.message);
+     res.status(500).json({status:false,error:error.message});
+ }
 }
 ///////////////////////////////////////////////////////////////
 const aPartamentos = async(req,res)=>{
@@ -334,9 +338,9 @@ const aPartamentos = async(req,res)=>{
         let data= await consulta(); 
         res.render('apartamentos',{users:data.users,paGos:data.paGos,apartamentOs:data.apartamentOs,activos:data.activos,inactivos:data.inactivos,repoRtes:data.repoRtes,factUras:data.factUras,totalDeudaActual:data.totalDeudaActual,totalDeudaPendiente:data.totalDeudaPendiente});
     }catch(error){
-       console.error(error.message);
-       res.status(500).json({status:false,error:error.message});
-   }
+     console.error(error.message);
+     res.status(500).json({status:false,error:error.message});
+ }
 }
 ///////////////////////////////////////////////////////////////
 const restablecer  = (req,res)=>{
@@ -345,9 +349,9 @@ const restablecer  = (req,res)=>{
         console.log(`ID DE LA SESION :${id}`);
         res.render('restablecer');
     }catch(error){
-       console.error(error.message);
-       res.status(500).json({status:false,error:error.message});
-   }
+     console.error(error.message);
+     res.status(500).json({status:false,error:error.message});
+ }
 }
 ////////////////////////////////////////////////////////////////
 const updateGet = async (req, res) => {
@@ -384,24 +388,24 @@ const updateGet = async (req, res) => {
 ////////////////////////////////////////////////////////////////
 const updatePost = async(req,res)=>{
     try{
-     const {id,tabla} = req.params;
-     if(tabla == "usuarios"){
-       let {nombre,email,telefono,password,apartamentoId,deudaActual,deudaPendiente} = req.body;
-       let portada;
-       if (req.file){
+       const {id,tabla} = req.params;
+       if(tabla == "usuarios"){
+         let {nombre,email,telefono,password,apartamentoId,deudaActual,deudaPendiente} = req.body;
+         let portada;
+         if (req.file){
       // Si se sube una imagen
-        portada = `/uploads/${req.file.filename}`;
-        await usuarios.update({nombre,email,telefono,password,imgPerfil:portada,apartamentoId,deudaActual,deudaPendiente},{where:{id}});
-    }
-}else if(tabla == 'apartamentos'){
-   let {piso,edificio,apartamento,usuarioId,status} = req.body;
-   await apartamentos.update({piso,edificio,apartamento,usuarioId,status},{where:{id}});
+            portada = `/uploads/${req.file.filename}`;
+            await usuarios.update({nombre,email,telefono,password,imgPerfil:portada,apartamentoId,deudaActual,deudaPendiente},{where:{id}});
+        }
+    }else if(tabla == 'apartamentos'){
+     let {piso,edificio,apartamento,usuarioId,status} = req.body;
+     await apartamentos.update({piso,edificio,apartamento,usuarioId,status},{where:{id}});
 
-}else if(tabla == 'adminPagos'){
+ }else if(tabla == 'adminPagos'){
 
-   let {codigo,comentario,comprobante:portada,usuarioId,monto} = req.body;
+     let {codigo,comentario,comprobante,usuarioId,monto} = req.body;
 
-   if(req.file){
+     if(req.file){
       portada = `/uploads/${req.file.filename}`;
       await pagos.update({codigo,comentario,comprobante:portada,usuarioId,monto},{where:{id}});
   }
@@ -421,12 +425,12 @@ res.redirect(`/${tabla}`);
 ////////////////////////////////////////////////////////////////
 const deleteUsuario =async(req,res)=>{
     try{
-       const {id,tabla} = req.params;
-       if(tabla == 'usuarios'){
-           await usuarios.destroy({where:{id}});  
-       }else if(tabla == 'apartamentos'){
-           await apartamentos.destroy({where:{id}});
-       }else if(tabla == 'adminPagos'){
+     const {id,tabla} = req.params;
+     if(tabla == 'usuarios'){
+         await usuarios.destroy({where:{id}});  
+     }else if(tabla == 'apartamentos'){
+         await apartamentos.destroy({where:{id}});
+     }else if(tabla == 'adminPagos'){
         await pagos.destroy({where:{id}});
     }else if(tabla == 'reportes'){
         await reportes.destroy({where:{id}});
@@ -435,8 +439,8 @@ const deleteUsuario =async(req,res)=>{
     }
     res.redirect(`/${tabla}`);
 }catch(error){
- console.error(error.message);
- res.status(500).json({status:false,error:error.message});
+   console.error(error.message);
+   res.status(500).json({status:false,error:error.message});
 }
 }
 ////////////////////////////////////////////////////////////////
@@ -445,9 +449,9 @@ const adminPagos = async(req,res)=>{
         const data = await consulta();
         res.render('pagos',{paGos:data.paGos,users:data.users,apartamentOs:data.apartamentOs,activos:data.activos,inactivos:data.inactivos,repoRtes:data.repoRtes,factUras:data.factUras,totalDeudaActual:data.totalDeudaActual,totalDeudaPendiente:data.totalDeudaPendiente});
     }catch(error){
-       console.error(error.message);
-       res.status(500).json({status:false,error:error.message});
-   }
+     console.error(error.message);
+     res.status(500).json({status:false,error:error.message});
+ }
 }
 ////////////////////////////////////////////////////////////////
 const repor = async(req,res)=>{
@@ -461,7 +465,7 @@ const repor = async(req,res)=>{
 }
 ////////////////////////////////////////////////////////////////
 const fActuras = async(req,res)=>{
-   try{
+ try{
     const data = await consulta();
     res.render('facturas',{paGos:data.paGos,users:data.users,apartamentOs:data.apartamentOs,activos:data.activos,inactivos:data.inactivos,repoRtes:data.repoRtes,factUras:data.factUras,totalDeudaActual:data.totalDeudaActual,totalDeudaPendiente:data.totalDeudaPendiente});
 }catch(error){
@@ -517,9 +521,33 @@ const descargarPDF = async(req,res)=>{
     // Finalizar el PDF
         doc.end();
     }catch(error){
-     console.error(error.message);
-     res.status(500).json({status:false,error:error.message});
- }
+       console.error(error.message);
+       res.status(500).json({status:false,error:error.message});
+   }
+}
+////////////////////////////////////////////////////////////////
+const restartPasswordPerfil = async(req,res)=>{
+    try{
+        const {id,p} = req.body;
+        await usuarios.update({password:p},{where:{id}});
+        res.json({status:true});
+    }catch(error){
+        console.error(error.message);
+        res.status(500).json({status:false,error:error.message}); 
+    }
+}
+////////////////////////////////////////////////////////////////
+const logout = async(req,res)=>{
+try{
+  req.session.destroy(err => {
+        if(err) return console.error(err.message);
+        res.clearCookie('connect.sid'); // Limpia la cookie de sesión
+        res.redirect('/'); // Redirige a la página principal o a la página de inicio de sesión
+    });
+}catch(error){
+console.error(error.message);
+res.status(500).send('Error en el servidor');
+}
 }
 ////////////////////////////////////////////////////////////////
 module.exports= {
@@ -541,5 +569,5 @@ module.exports= {
     updateGet,
     updatePost,
     deleteUsuario,adminPagos,aPartamentos,crearApartamentoPost,
-    crearPagoPost,repor,crearReporte,fActuras,crearFactura,descargarPDF,pagar
+    crearPagoPost,repor,crearReporte,fActuras,crearFactura,descargarPDF,pagar,restartPasswordPerfil,logout
 }

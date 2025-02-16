@@ -13,7 +13,9 @@
 			</div>
 
 		</div>
-		<div class="datosUsuarioBox">
+
+		<form class="datosUsuarioBox">
+
 			<h1>Datos Personales</h1>
 			<div class="inputBox">
 			    <i class="fa-solid fa-user"></i>
@@ -30,18 +32,20 @@
 				<p><%=us.telefono%></p>
 				<i class="fa-solid fa-check"></i>
 			</div>
-			<div class="inputBox seg">
-				<i class="fa-solid fa-lock"></i>
-				<p><%=us.password%></p>
-				<i class="fa-solid fa-check"></i>
+			<div >
+				
+				<input data-id='<%=us.id%>' id='password' class="inputBox seg" type="text" value="   <%=us.password%>">
+				
 			</div>
-		</div>
+		</form>
+
+
 		<div class="infonrmacionBox">
 			<div class="informacio">
 				<h2>!Importante¡</h2>
 				<span>Si tienes algun inconveniente no dude en comunitarte con el administrador!</span>
 				<p>Condominio Ejecutivo II</p>
-				<button>Guardar Datos</button>
+				<button style='cursor:pointer;' class="enviar">Guardar Datos</button>
 			</div>
 			<div class="linkGrupoBox"><a href="#">Link Grupo</a></div>
 		</div>
@@ -52,5 +56,29 @@
 		</p>
 	</div>
 	<script src="/Js/menu.js"></script>
+	<script>
+		const enviar = document.querySelector('.enviar');
+		enviar.addEventListener('click',()=>{
+        const password = document.getElementById('password');
+        const id = password.dataset.id;
+        const p = password.value;
+        fetch('/restartPasswordPerfil',{
+        	method:'post',
+        	headers:{
+        		"Content-Type":"application/json"
+        	},
+        	body:JSON.stringify({id,p})
+        })
+        .then(res=>res.json())
+        .then(res=>{
+        	if(res.status){
+             Swal.fire('¡Contraseña cambiada con exito!');
+        	}else{
+        		Swal.fire('ERROR AL CAMBIAR CONTRASEÑA , INTENTE MAS TARDE');
+        	}
+        })
+		});
+
+	</script>
 </body>
 </html>

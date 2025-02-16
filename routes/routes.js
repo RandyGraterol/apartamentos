@@ -3,7 +3,7 @@ const upload = require('../utils/multer.js');
 
 const verify = require('../middleware/verify.js');
 
-const { index,ejecutivo_II,viewAdmin,gestion_de_pagos,bienvenidos,perfilUsuario,sugerencias,loginPost,crearGet,crearPost,recovery,recoveryPost,restablecerPasswordPost,dashboar,usUarios,restablecer,updateGet,updatePost,deleteUsuario,adminPagos,aPartamentos,crearApartamentoPost,crearPagoPost,repor,crearReporte,fActuras,crearFactura,descargarPDF,pagar} = require('../controllers/controllers.js');
+const { index,ejecutivo_II,viewAdmin,gestion_de_pagos,bienvenidos,perfilUsuario,sugerencias,loginPost,crearGet,crearPost,recovery,recoveryPost,restablecerPasswordPost,dashboar,usUarios,restablecer,updateGet,updatePost,deleteUsuario,adminPagos,aPartamentos,crearApartamentoPost,crearPagoPost,repor,crearReporte,fActuras,crearFactura,descargarPDF,pagar,restartPasswordPerfil,logout} = require('../controllers/controllers.js');
 
 const routes = express.Router();
 
@@ -35,10 +35,12 @@ routes.post('/crearApartamentoPost',crearApartamentoPost);
 routes.post('/crearPagoPost/:id',upload.single('comprobante'),crearPagoPost);
 routes.post('/crearReporte/:role',crearReporte);
 routes.post('/crearFactura',crearFactura);
+routes.post('/restartPasswordPerfil',restartPasswordPerfil);
 
 routes.post('/recoveryPost',recoveryPost);
 routes.post('/restablecerPasswordPost',restablecerPasswordPost);
 routes.post('/updatePost/:id/:tabla',upload.single('comprobante'),updatePost);
+routes.get('/logout',logout);
 /////////////////////////////////////////////////////////
 //borrar
 routes.get('/deleteUsuario/:id/:tabla',deleteUsuario);
