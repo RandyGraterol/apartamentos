@@ -101,7 +101,7 @@ const gestion_de_pagos = async(req,res)=>{
       }
       const f = await facturas.findOne({where:{usuarioId:idF}});
       if(f) return res.render('gestionPagos',{data,f});
-      res.json({message:'Sin factura'});
+      res.render('gestionPagos',{data,f:null});
   }catch(error){
     console.error(error.message);
     res.status(500).json({status:false,error:error.message});
@@ -205,18 +205,27 @@ const crearPagoPost = async (req, res) => {
         const usuario = await usuarios.findOne({ where: { id: usuarioId } });
 
         if (usuario) {
-            // Calcular nueva deuda actual
-            const nuevaDeudaActual = Math.max(0, usuario.deudaActual - monto); // Asegúrate de que no sea negativa
-            const nuevaDeudaPendiente = usuario.deudaPendiente; // Puedes ajustar esto según tu lógica
+            let nuevaDeudaActual;
+            let nuevaDeudaPendiente = usuario.deudaPendiente;
+
+            if (monto <= usuario.deudaActual) {
+                // Si el monto pagado es menor o igual a la deuda actual
+                nuevaDeudaActual = usuario.deudaActual - monto;
+            } else {
+                // Si el monto pagado es mayor que la deuda actual
+                nuevaDeudaActual = 0; // La deuda actual se paga completamente
+                const exceso = monto - usuario.deudaActual; // Calcular el exceso
+                nuevaDeudaPendiente = Math.max(0, usuario.deudaPendiente - exceso); // Restar el exceso de la deuda pendiente
+            }
 
             // Actualizar el usuario
             await usuarios.update(
-            {
-                deudaActual: nuevaDeudaActual,
-                    deudaPendiente: nuevaDeudaPendiente // Ajusta esto si necesitas cambiar la deuda pendiente
+                {
+                    deudaActual: nuevaDeudaActual,
+                    deudaPendiente: nuevaDeudaPendiente // Actualizar la deuda pendiente
                 },
                 { where: { id: usuarioId } }
-                );
+            );
         }
 
         // Redirigir según el ID

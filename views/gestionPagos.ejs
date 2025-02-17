@@ -35,10 +35,11 @@
 
 			<div class="navBox">
 				<button>Factura Siguiente</button>
-
+                 <% if(f !== null){%>
 				<a title='Descargar ultima factura' href="/descargarPDF/<%=f.id%>">
 				<img width="50" class="imgOpcion" src="/icon/download-pdf.png" alt="">
 			    </a>
+			    <% } %>
 
 					<button>Factura Anterior</button>
 				</div>
