@@ -100,10 +100,11 @@ const gestion_de_pagos = async(req,res)=>{
           idF=data.id;
       }
       const f = await facturas.findOne({where:{usuarioId:idF}});
-      res.render('gestionPagos',{data,f});
+      if(f) return res.render('gestionPagos',{data,f});
+      res.json({message:'Sin factura'});
   }catch(error){
     console.error(error.message);
-    res.status(500).json({status:"X",error:error.message});
+    res.status(500).json({status:false,error:error.message});
 };
 }
 ///////////////////////////////////////////////////////////////
@@ -510,7 +511,7 @@ const descargarPDF = async(req,res)=>{
         const backgroundImagePath = path.join(__dirname, '../public/fondo.jpeg');
 
         doc.image(backgroundImagePath, 0, 0, { width: 600, height: 800 }); // Ajusta el tamaño según sea necesario
-        
+
         // Establecer el color del texto en blanco
         doc.fillColor('white');
 
