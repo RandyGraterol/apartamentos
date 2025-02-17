@@ -3,10 +3,107 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Fondo claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    animation: fadeIn 0.5s; /* Animación de entrada */
+}
+
+/* Estilo del título */
+h1 {
+    color: #007BFF; /* Color azul */
+    text-align: center; /* Centrar texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Estilo del formulario */
+.formulario {
+    display: flex;
+    flex-direction: column; /* Colocar elementos en columna */
+}
+
+/* Estilo de los inputs */
+.inputD {
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+.inputD label {
+    display: block; /* Mostrar como bloque */
+    margin-bottom: 5px; /* Espacio inferior */
+    color: #007BFF; /* Color azul */
+}
+
+.inputD input,
+.inputD select {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #007BFF; /* Borde azul */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+}
+
+.inputD input:focus,
+.inputD select:focus {
+    border-color: #0056b3; /* Color azul más oscuro al enfocar */
+    outline: none; /* Sin contorno */
+}
+
+/* Estilo del botón */
+.btn {
+    background-color: #007BFF; /* Color azul */
+    color: white; /* Color blanco */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Color azul más oscuro al pasar el mouse */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Mover hacia arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Regresar a la posición original */
+    }
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px; /* Menos padding en pantallas pequeñas */
+    }
+
+    .btn {
+        padding: 8px; /* Menos padding en el botón */
+    }
+}
+    </style>
     <script src='/js/alertConfig.js'></script>
-    <link rel="stylesheet" href="/Css/stylesForm/stylesForm.css">
-    <link rel="stylesheet" href="/Css/body.css">
+    
     <title>Pagar</title>
 </head>
 <body>
@@ -28,20 +125,14 @@
                 <label for="comprobante" class="boton1">
                   <div class="svg-wrapper-1">
                     <div class="svg-wrapper">
-                        <svg 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            viewBox="0 0 384 512"
-                            width='24'
-                            height='24'
-                            >
-                            <path fill="#fff" d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM216 408c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-102.1-31 31c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l72-72c9.4-9.4 24.6-9.4 33.9 0l72 72c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-31-31L216 408z"/></svg>
+                       <img src="/icon/picture.png" width="30" alt="">
                     </div>
                   </div>
                   <span class="text">File</span>
                 </label>
             </div>
         
-            <div>
+            <div class="inputD">
                 <label for="monto">Monto</label>
                 <input type="number" placeholder="Ingrese Monto" name="monto" id="monto" required> 
             </div>
