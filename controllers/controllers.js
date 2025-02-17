@@ -1,5 +1,6 @@
 const nodemailer= require('nodemailer');
 const PDFDocument = require('pdfkit');
+const path = require('path');
 /////////////////////////////////////////////////////////
 const transporter = nodemailer.createTransport({
     service:'Gmail',
@@ -503,6 +504,16 @@ const descargarPDF = async(req,res)=>{
 
     // Pipe el documento a la respuesta
         doc.pipe(res);
+
+      
+         // Construir la ruta al archivo de imagen
+        const backgroundImagePath = path.join(__dirname, '../public/fondo.jpeg');
+
+        doc.image(backgroundImagePath, 0, 0, { width: 600, height: 800 }); // Ajusta el tamaño según sea necesario
+        
+        // Establecer el color del texto en blanco
+        doc.fillColor('white');
+
 
     // Agregar contenido al PDF
         doc.fontSize(25).text(`Factura de : ${fac.usuario.nombre}`, 100, 80);
